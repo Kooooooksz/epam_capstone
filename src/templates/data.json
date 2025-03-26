@@ -1,0 +1,113 @@
+{
+  "users": [
+    {
+      "name": "admin",
+      "password": "admin123",
+      "role": "admin",
+      "email": "admin@learningplatform.com",
+      "courses": ["course_001", "course_002"],
+      "created_at": "2024-03-26"
+    },
+    {
+      "name": "john_doe",
+      "password": "password123",
+      "role": "student",
+      "email": "john.doe@example.com",
+      "courses": ["course_001", "course_003"],
+      "created_at": "2024-02-15",
+      "progress": {
+        "course_001": "50%",
+        "course_003": "30%"
+      }
+    },
+    {
+      "name": "jane_smith",
+      "password": "securePass456",
+      "role": "student",
+      "email": "jane.smith@example.com",
+      "courses": ["course_002", "course_003"],
+      "created_at": "2024-03-01",
+      "progress": {
+        "course_002": "80%",
+        "course_003": "60%"
+      }
+    },
+    {
+      "name": "mary_jones",
+      "password": "jonesPass789",
+      "role": "teacher",
+      "email": "mary.jones@learningplatform.com",
+      "courses": ["course_002"],
+      "created_at": "2023-12-10",
+      "assigned_courses": ["course_002"]
+    },
+    {
+      "name": "mark_taylor",
+      "password": "markPass123",
+      "role": "teacher",
+      "email": "mark.taylor@learningplatform.com",
+      "courses": ["course_003"],
+      "created_at": "2024-01-05",
+      "assigned_courses": ["course_003"]
+    }
+  ],
+  "courses": [
+    {
+      "course_id": "course_001",
+      "course_name": "Introduction to Programming",
+      "description": "Learn the fundamentals of programming with this introductory course.",
+      "teacher": "mary_jones",
+      "created_at": "2024-01-10",
+      "modules": [
+        {
+          "module_id": "module_001",
+          "title": "Basic Syntax",
+          "content": "Introduction to variables, data types, and operators."
+        },
+        {
+          "module_id": "module_002",
+          "title": "Control Flow",
+          "content": "Understanding conditionals and loops."
+        }
+      ]
+    },
+    {
+      "course_id": "course_002",
+      "course_name": "Web Development Basics",
+      "description": "Learn the fundamentals of developing a good-looking, modern webpage.",
+      "teacher": "mark_taylor",
+      "created_at": "2024-02-05",
+      "modules": [
+        {
+          "module_id": "module_003",
+          "title": "HTML Basics",
+          "content": "Introduction to HTML structure and elements."
+        },
+        {
+          "module_id": "module_004",
+          "title": "CSS Styling",
+          "content": "Learn the basics of styling webpages with CSS."
+        }
+      ]
+    },
+    {
+      "course_id": "course_003",
+      "course_name": "JavaScript for Beginners",
+      "description": "Learn the fundamentals of JavaScript programming language.",
+      "teacher": "mark_taylor",
+      "created_at": "2024-03-01",
+      "modules": [
+        {
+          "module_id": "module_005",
+          "title": "JavaScript Syntax",
+          "content": "Basic syntax of JavaScript, including functions and variables."
+        },
+        {
+          "module_id": "module_006",
+          "title": "DOM Manipulation",
+          "content": "Interacting with the DOM using JavaScript."
+        }
+      ]
+    }
+  ]
+}

@@ -12,5 +12,8 @@
   "license": "ISC",
   "devDependencies": {
     "sass": "^1.86.0"
+  },
+  "dependencies": {
+    "capstone-project-template": "file:"
   }
 }
