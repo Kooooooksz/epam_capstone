@@ -4,6 +4,7 @@ const btnLogout = document.querySelector(".logout");
 const courseListEl = document.querySelector(".course-list");
 const myCoursesEl = document.querySelector(".my_courses");
 const sortSelect = document.querySelector(".sort-select");
+const searchInput = document.querySelector(".search-input");
 
 let data = null;
 let currentUser = JSON.parse(localStorage.getItem("currentUser")) || null;
@@ -11,7 +12,7 @@ let courses = [];
 let currentPage = 1;
 const itemsPerPage = 10;
 
-async function loadCourses(sort = false, coursesP) {
+async function loadCourses(coursesP) {
   data = await fetchData();
 
   if (!data || !data.courses) {
@@ -19,7 +20,7 @@ async function loadCourses(sort = false, coursesP) {
     return;
   }
 
-  courses = !sort ? data.courses : coursesP;
+  courses = coursesP === undefined ? data.courses : coursesP;
   renderPage(currentPage);
   setupPagination();
 }
@@ -111,12 +112,26 @@ const sortCourses = async function (category, order) {
   });
 
   console.log(courses);
-  loadCourses(true, courses);
+  loadCourses(courses);
 };
 
 sortSelect.addEventListener("click", function (e) {
   if (e.target.nodeName === "OPTION") {
-    console.log(...e.target.value.split("-"));
     sortCourses(...e.target.value.split("-"));
+  }
+});
+
+document.addEventListener("click", function (e) {
+  if (document.activeElement === searchInput) {
+    searchInput.addEventListener("keydown", async function (e) {
+      console.log(searchInput.value);
+      let { courses } = await fetchData();
+      courses = courses.filter((course) =>
+        course.course_name
+          .toLowerCase()
+          .includes(searchInput.value.toLowerCase())
+      );
+      loadCourses(courses);
+    });
   }
 });
