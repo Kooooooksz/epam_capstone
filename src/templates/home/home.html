@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Online Learning Platform</title>
+    <link rel="stylesheet" href="home.css" />
   </head>
   <body>
     <header>
@@ -32,6 +33,14 @@
       <h2 class="section-title">Featured Courses</h2>
       <div class="course-list"></div>
     </section>
+
+    <div class="pagination">
+      <button id="prev">Previous</button>
+      <span id="page-info"></span>
+      <button id="next">Next</button>
+    </div>
+
+    <p id="loading" class="hidden">Loading...</p>
 
     <footer>
       <div class="footer-content">

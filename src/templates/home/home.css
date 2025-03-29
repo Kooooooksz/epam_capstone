@@ -1,0 +1,157 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+body {
+  background-color: #f8f9fa;
+  color: #333;
+}
+header {
+  background: #007bff;
+  padding: 15px 0;
+}
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+header nav .logo h1 {
+  color: #fff;
+  font-size: 24px;
+}
+header nav .nav-links {
+  list-style: none;
+  display: flex;
+}
+header nav .nav-links li {
+  margin: 0 15px;
+}
+header nav .nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+header nav .nav-links li a:hover {
+  color: #f8f9fa;
+}
+.hero {
+  background: linear-gradient(to right, #007bff, #0056b3);
+  color: #fff;
+  text-align: center;
+  padding: 50px 20px;
+}
+.hero .hero-content {
+  max-width: 600px;
+  margin: auto;
+}
+.hero .hero-content h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+.hero .hero-content p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+.hero .hero-content .cta-btn {
+  display: inline-block;
+  background: #fff;
+  color: #007bff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+.hero .hero-content .cta-btn:hover {
+  background: #666;
+}
+.courses {
+  text-align: center;
+  padding: 40px 20px;
+}
+.courses .section-title {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+.courses .course-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+.courses .course-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+.courses .course-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.courses .course-card p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 15px;
+}
+.courses .course-card .course-link {
+  display: inline-block;
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+.courses .course-card .course-link:hover {
+  color: #0056b3;
+}
+.courses .course-card:hover {
+  transform: translateY(-5px);
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.pagination button {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.pagination button:hover {
+  background: #0056b3;
+}
+.pagination button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+.pagination #page-info {
+  font-size: 16px;
+  margin: 0 10px;
+}
+footer {
+  background: #007bff;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+}
+.hidden {
+  display: none;
+}
+.pagination button {
+  margin: 5px;
+}

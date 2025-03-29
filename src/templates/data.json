@@ -108,6 +108,215 @@
           "content": "Interacting with the DOM using JavaScript."
         }
       ]
+    },
+    {
+      "course_id": "course_004",
+      "course_name": "Advanced JavaScript",
+      "description": "Deep dive into JavaScript concepts such as closures, promises, and async/await.",
+      "teacher": "jane_doe",
+      "created_at": "2024-03-15",
+      "modules": [
+        {
+          "module_id": "module_007",
+          "title": "Closures and Scope",
+          "content": "Understanding closures, lexical scope, and hoisting."
+        },
+        {
+          "module_id": "module_008",
+          "title": "Asynchronous JavaScript",
+          "content": "Promises, async/await, and event loop."
+        }
+      ]
+    },
+    {
+      "course_id": "course_005",
+      "course_name": "Python for Beginners",
+      "description": "Learn Python programming from scratch.",
+      "teacher": "susan_miller",
+      "created_at": "2024-04-01",
+      "modules": [
+        {
+          "module_id": "module_009",
+          "title": "Python Basics",
+          "content": "Introduction to Python syntax and data types."
+        },
+        {
+          "module_id": "module_010",
+          "title": "Control Flow",
+          "content": "Loops, conditionals, and functions in Python."
+        }
+      ]
+    },
+    {
+      "course_id": "course_006",
+      "course_name": "Data Structures and Algorithms",
+      "description": "Learn fundamental data structures and algorithms.",
+      "teacher": "john_smith",
+      "created_at": "2024-04-15",
+      "modules": [
+        {
+          "module_id": "module_011",
+          "title": "Arrays and Linked Lists",
+          "content": "Understanding arrays, linked lists, and their operations."
+        },
+        {
+          "module_id": "module_012",
+          "title": "Sorting Algorithms",
+          "content": "QuickSort, MergeSort, and BubbleSort explained."
+        }
+      ]
+    },
+    {
+      "course_id": "course_007",
+      "course_name": "Machine Learning Basics",
+      "description": "Introduction to machine learning concepts and techniques.",
+      "teacher": "alice_watson",
+      "created_at": "2024-05-01",
+      "modules": [
+        {
+          "module_id": "module_013",
+          "title": "Supervised Learning",
+          "content": "Introduction to regression and classification models."
+        },
+        {
+          "module_id": "module_014",
+          "title": "Unsupervised Learning",
+          "content": "Clustering and dimensionality reduction techniques."
+        }
+      ]
+    },
+    {
+      "course_id": "course_008",
+      "course_name": "React.js Fundamentals",
+      "description": "Learn the basics of React.js for modern frontend development.",
+      "teacher": "mark_taylor",
+      "created_at": "2024-05-15",
+      "modules": [
+        {
+          "module_id": "module_015",
+          "title": "JSX and Components",
+          "content": "Understanding JSX syntax and React components."
+        },
+        {
+          "module_id": "module_016",
+          "title": "State and Props",
+          "content": "Managing component state and props in React."
+        }
+      ]
+    },
+    {
+      "course_id": "course_009",
+      "course_name": "Node.js for Beginners",
+      "description": "Learn how to build backend applications using Node.js.",
+      "teacher": "jane_doe",
+      "created_at": "2024-06-01",
+      "modules": [
+        {
+          "module_id": "module_017",
+          "title": "Node.js Basics",
+          "content": "Introduction to Node.js and package management."
+        },
+        {
+          "module_id": "module_018",
+          "title": "Building an API",
+          "content": "Creating a RESTful API using Express.js."
+        }
+      ]
+    },
+    {
+      "course_id": "course_010",
+      "course_name": "Cybersecurity Fundamentals",
+      "description": "Learn about the basics of cybersecurity and ethical hacking.",
+      "teacher": "david_clark",
+      "created_at": "2024-06-15",
+      "modules": [
+        {
+          "module_id": "module_019",
+          "title": "Network Security",
+          "content": "Understanding firewalls, VPNs, and encryption."
+        },
+        {
+          "module_id": "module_020",
+          "title": "Ethical Hacking",
+          "content": "Basic penetration testing and security assessments."
+        }
+      ]
+    },
+    {
+      "course_id": "course_011",
+      "course_name": "Database Management",
+      "description": "Learn how to design and manage databases using SQL and NoSQL.",
+      "teacher": "mary_jones",
+      "created_at": "2024-07-01",
+      "modules": [
+        {
+          "module_id": "module_021",
+          "title": "SQL Basics",
+          "content": "Creating and querying databases using SQL."
+        },
+        {
+          "module_id": "module_022",
+          "title": "NoSQL Databases",
+          "content": "Understanding document-based databases like MongoDB."
+        }
+      ]
+    },
+    {
+      "course_id": "course_012",
+      "course_name": "C++ Programming",
+      "description": "Learn C++ programming language from the ground up.",
+      "teacher": "john_smith",
+      "created_at": "2024-07-15",
+      "modules": [
+        {
+          "module_id": "module_023",
+          "title": "C++ Syntax",
+          "content": "Understanding C++ syntax and data types."
+        },
+        {
+          "module_id": "module_024",
+          "title": "OOP in C++",
+          "content": "Introduction to object-oriented programming in C++."
+        }
+      ]
+    },
+    {
+      "course_id": "course_013",
+      "course_name": "Artificial Intelligence Basics",
+      "description": "Learn about artificial intelligence and neural networks.",
+      "teacher": "alice_watson",
+      "created_at": "2024-08-01",
+      "modules": [
+        {
+          "module_id": "module_025",
+          "title": "Introduction to AI",
+          "content": "Overview of artificial intelligence and its applications."
+        },
+        {
+          "module_id": "module_026",
+          "title": "Neural Networks",
+          "content": "Basics of deep learning and neural networks."
+        }
+      ]
+    },
+    {
+      "course_id": "course_014",
+      "course_name": "Django Web Development",
+      "description": "Learn how to develop web applications using Django.",
+      "teacher": "susan_miller",
+      "created_at": "2024-08-15",
+      "modules": [
+        {
+          "module_id": "module_027",
+          "title": "Django Basics",
+          "content": "Setting up a Django project and creating models."
+        },
+        {
+          "module_id": "module_028",
+          "title": "Templates and Views",
+          "content": "Using Django templates and views to build dynamic web pages."
+        }
+      ]
     }
   ]
 }
