@@ -3,6 +3,7 @@ import { fetchData } from "../fetchData.js";
 const btnLogout = document.querySelector(".logout");
 const courseListEl = document.querySelector(".course-list");
 const myCoursesEl = document.querySelector(".my_courses");
+const sortSelect = document.querySelector(".sort-select");
 
 let data = null;
 let currentUser = JSON.parse(localStorage.getItem("currentUser")) || null;
@@ -10,7 +11,7 @@ let courses = [];
 let currentPage = 1;
 const itemsPerPage = 10;
 
-async function loadCourses() {
+async function loadCourses(sort = false, coursesP) {
   data = await fetchData();
 
   if (!data || !data.courses) {
@@ -18,7 +19,7 @@ async function loadCourses() {
     return;
   }
 
-  courses = data.courses;
+  courses = !sort ? data.courses : coursesP;
   renderPage(currentPage);
   setupPagination();
 }
@@ -36,6 +37,8 @@ function renderPage(page) {
     courseElem.innerHTML = `
       <h3>${elem.course_name}</h3>
       <p>${elem.description}</p>
+      <img src=../../assets/${elem.course_image} height="300" width="300">
+      <p>This course was created at: ${elem.created_at}</p>
       <a href="#" class="course-link">View Course</a>
     `;
     courseListEl.appendChild(courseElem);
@@ -89,3 +92,31 @@ myCoursesEl.addEventListener("click", function (e) {
 });
 
 loadCourses();
+
+const sortCourses = async function (category, order) {
+  let { courses } = await fetchData();
+  courses = courses.sort((a, b) => {
+    if (order === "desc") {
+      const temp = a;
+      a = b;
+      b = temp;
+    }
+    if (a[category] < b[category]) {
+      return -1;
+    }
+    if (a[category] > b[category]) {
+      return 1;
+    }
+    return 0;
+  });
+
+  console.log(courses);
+  loadCourses(true, courses);
+};
+
+sortSelect.addEventListener("click", function (e) {
+  if (e.target.nodeName === "OPTION") {
+    console.log(...e.target.value.split("-"));
+    sortCourses(...e.target.value.split("-"));
+  }
+});

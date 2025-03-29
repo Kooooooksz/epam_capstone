@@ -31,6 +31,21 @@
 
     <section class="courses">
       <h2 class="section-title">Featured Courses</h2>
+      <div class="filters">
+        <input
+          type="text"
+          class="search-input"
+          placeholder="Search courses..."
+        />
+        <div class="sort-controls">
+          <select class="sort-select">
+            <option value="course_name-asc">Sort by Name (A-Z)</option>
+            <option value="course_name-desc">Sort by Name (Z-A)</option>
+            <option value="created_at-asc">Sort by Date (Old to New)</option>
+            <option value="created_at-desc">Sort by Date (New to Old)</option>
+          </select>
+        </div>
+      </div>
       <div class="course-list"></div>
     </section>
 
