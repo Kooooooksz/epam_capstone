@@ -6,6 +6,7 @@ const myCoursesEl = document.querySelector(".my_courses");
 const sortSelect = document.querySelector(".sort-select");
 const searchInput = document.querySelector(".search-input");
 
+searchInput.value = "";
 let data = null;
 let currentUser = JSON.parse(localStorage.getItem("currentUser")) || null;
 let courses = [];
@@ -36,9 +37,9 @@ function renderPage(page) {
     const courseElem = document.createElement("div");
     courseElem.classList.add("course-card");
     courseElem.innerHTML = `
-      <h3>${elem.course_name}</h3>
+      <h3 class="course-name">${elem.course_name}</h3>
       <p>${elem.description}</p>
-      <img src=../../assets/${elem.course_image} height="300" width="300">
+      <img src=../../assets/course_images/${elem.course_image} height="300" width="300">
       <p>This course was created at: ${elem.created_at}</p>
       <a href="#" class="course-link">View Course</a>
     `;
@@ -94,8 +95,9 @@ myCoursesEl.addEventListener("click", function (e) {
 
 loadCourses();
 
-const sortCourses = async function (category, order) {
-  let { courses } = await fetchData();
+const sortCourses = async function (category, order, courseP) {
+  let data = await fetchData();
+  let courses = courseP === undefined ? data.courses : courseP;
   courses = courses.sort((a, b) => {
     if (order === "desc") {
       const temp = a;
@@ -117,21 +119,43 @@ const sortCourses = async function (category, order) {
 
 sortSelect.addEventListener("click", function (e) {
   if (e.target.nodeName === "OPTION") {
-    sortCourses(...e.target.value.split("-"));
+    if (searchInput.value.trim() === "") {
+      sortCourses(...e.target.value.split("-"));
+    } else {
+      filterCourses().then((courses) => {
+        sortCourses(...e.target.value.split("-"), courses);
+      });
+    }
   }
 });
 
+const filterCourses = async function (e) {
+  let { courses } = await fetchData();
+  courses = courses.filter((course) =>
+    course.course_name.toLowerCase().includes(searchInput.value.toLowerCase())
+  );
+
+  loadCourses(courses);
+
+  return courses;
+};
+const courseList = document.querySelector(".course-list");
+
 document.addEventListener("click", function (e) {
   if (document.activeElement === searchInput) {
-    searchInput.addEventListener("keydown", async function (e) {
-      console.log(searchInput.value);
-      let { courses } = await fetchData();
-      courses = courses.filter((course) =>
-        course.course_name
-          .toLowerCase()
-          .includes(searchInput.value.toLowerCase())
-      );
-      loadCourses(courses);
+    searchInput.addEventListener("keydown", filterCourses);
+    [...courseList.children].forEach((card) => {
+      if (card.classList.contains("course-card")) {
+        const courseNameEl = card.querySelector(".course-name");
+        const regex = new RegExp(searchInput.value, "gi");
+        courseNameEl.innerHTML = courseNameEl.textContent.replace(
+          regex,
+          (match) => `<span class="highlight">${match}</span>`
+        );
+        console.log(courseNameEl.innerHTML);
+      }
     });
   }
 });
+
+console.log(document.activeElement);
