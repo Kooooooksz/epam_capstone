@@ -1,4 +1,8 @@
-import { fetchData } from "../fetchData.js";
+import { fetchData, insertNavMenu, navMenuClick } from "../common.js";
+
+const header = document.querySelector("header");
+insertNavMenu(header);
+navMenuClick(header);
 
 let data;
 fetchData().then((fetchedData) => {

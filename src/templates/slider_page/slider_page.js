@@ -1,3 +1,9 @@
+import { fetchData, insertNavMenu, navMenuClick } from "../common.js";
+
+const header = document.querySelector("header");
+insertNavMenu(header);
+navMenuClick(header);
+
 const sliderEl = document.querySelector(".slider");
 const prevBtn = document.querySelector("#prev");
 const nextBtn = document.querySelector("#next");
@@ -36,6 +42,7 @@ const goToSlide = function (slide) {
   [...sliderEl.children].forEach((s, i) => {
     s.style.transform = `translateX(${slideWidth * (i - slide)}px)`; // Use the actual width for translation
   });
+  sliderEl.style.transform = `translateX(-${slide * 100}%)`;
 };
 
 const nextSlide = function () {

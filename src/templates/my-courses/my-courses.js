@@ -1,4 +1,8 @@
-import { fetchData } from "../fetchData.js";
+import { fetchData, insertNavMenu, navMenuClick } from "../common.js";
+
+const header = document.querySelector("header");
+insertNavMenu(header);
+navMenuClick(header);
 
 const currentUser = JSON.parse(localStorage.getItem("currentUser")) || null;
 const courseList = document.querySelector("#course-list");

@@ -1,17 +1,18 @@
-import { fetchData } from "../fetchData.js";
+import { fetchData, insertNavMenu, navMenuClick } from "../common.js";
 
-const btnLogout = document.querySelector(".logout");
 const courseListEl = document.querySelector(".course-list");
-const myCoursesEl = document.querySelector(".my_courses");
 const sortSelect = document.querySelector(".sort-select");
 const searchInput = document.querySelector(".search-input");
+const header = document.querySelector("header");
 
 searchInput.value = "";
 let data = null;
-let currentUser = JSON.parse(localStorage.getItem("currentUser")) || null;
 let courses = [];
 let currentPage = 1;
 const itemsPerPage = 10;
+
+insertNavMenu(header);
+navMenuClick(header);
 
 async function loadCourses(coursesP) {
   data = await fetchData();
@@ -77,21 +78,6 @@ function updatePaginationControls() {
   document.getElementById("next").disabled =
     currentPage === Math.ceil(courses.length / itemsPerPage);
 }
-
-btnLogout.addEventListener("click", function (e) {
-  e.preventDefault();
-  localStorage.removeItem("currentUser");
-  console.log("User logged out.");
-  console.log(
-    "Current user after logout:",
-    localStorage.getItem("currentUser")
-  );
-  location.assign("../login/login.html");
-});
-
-myCoursesEl.addEventListener("click", function (e) {
-  location.assign("../my-courses/my-courses.html");
-});
 
 loadCourses();
 
