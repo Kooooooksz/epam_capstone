@@ -1,0 +1,31 @@
+@use "variables" as v;
+
+@mixin button-styles {
+  background: v.$primary-color;
+  color: v.$white;
+  border: none;
+  padding: 8px 15px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+
+  &:hover {
+    background: v.$secondary-color;
+  }
+
+  &:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin box-shadow {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}

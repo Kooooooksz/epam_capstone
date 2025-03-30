@@ -1,3 +1,7 @@
+@use "variables" as v;
+@use "mixins" as m;
+@use "nav";
+
 $primary-color: #007bff;
 $secondary-color: #0056b3;
 $background-color: #f8f9fa;
@@ -18,42 +22,7 @@ body {
 }
 
 header {
-  background: $primary-color;
-  padding: 15px 0;
-
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: auto;
-    padding: 0 20px;
-
-    .logo h1 {
-      color: $white;
-      font-size: 24px;
-    }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-
-      li {
-        margin: 0 15px;
-
-        a {
-          color: $white;
-          text-decoration: none;
-          font-size: 16px;
-          transition: color 0.3s;
-
-          &:hover {
-            color: $background-color;
-          }
-        }
-      }
-    }
-  }
+  @extend nav;
 }
 
 .hero {
