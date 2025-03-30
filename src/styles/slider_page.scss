@@ -1,10 +1,15 @@
-$slider-width: 600px;
-$slider-height: 350px;
-$transition-speed: 0.5s;
+/* Center the slider container */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
 
 .slider-container {
-  width: $slider-width;
-  height: $slider-height;
+  width: 900px; /* Slider width */
+  height: 500px; /* Slider height */
   overflow: hidden;
   position: relative;
   border-radius: 10px;
@@ -12,16 +17,17 @@ $transition-speed: 0.5s;
 
   .slider {
     display: flex;
-    width: 300%;
-    transition: transform $transition-speed ease-in-out;
+    transition: transform 0.5s ease-in-out;
 
     img {
-      width: $slider-width;
-      height: $slider-height;
-      object-fit: cover;
+      width: 100%; /* Make sure the image takes full width of the container */
+      height: 100%; /* Make sure the image takes full height of the container */
+      object-fit: cover; /* Cover the entire area without distorting */
+      flex: 0 0 100%; /* Each image takes up 100% of the container width */
     }
   }
 
+  /* Controls styling */
   .controls {
     position: absolute;
     top: 50%;
@@ -32,7 +38,7 @@ $transition-speed: 0.5s;
 
     button {
       background: rgba(0, 0, 0, 0.5);
-      color: white;
+      color: #fff;
       border: none;
       padding: 10px 15px;
       cursor: pointer;
@@ -45,6 +51,7 @@ $transition-speed: 0.5s;
     }
   }
 
+  /* Dots styling */
   .dots {
     position: absolute;
     bottom: 10px;
@@ -52,18 +59,18 @@ $transition-speed: 0.5s;
     display: flex;
     justify-content: center;
 
-    .dot {
+    .dots__dot {
       width: 10px;
       height: 10px;
       margin: 0 5px;
-      background: white;
+      background: #fff;
       border-radius: 50%;
       opacity: 0.5;
       transition: opacity 0.3s;
 
-      &.active {
+      &.dots__dot--active {
         opacity: 1;
-        background: #ff6347;
+        background: tomato;
       }
     }
   }
