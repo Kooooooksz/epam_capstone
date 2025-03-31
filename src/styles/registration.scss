@@ -1,50 +1,55 @@
 @use "variables" as v;
 @use "mixins" as m;
 
-body {
-  background: v.$background-color;
-  font-family: Arial, sans-serif;
-  color: v.$text-color;
-  @include m.flex-center;
-  height: 100vh;
-}
-
 .container {
-  background: v.$white;
+  max-width: 400px;
+  margin: 50px auto;
   padding: 20px;
+  background: v.$white;
   border-radius: 8px;
-  width: 350px;
-  text-align: center;
   @include m.box-shadow;
-}
+  text-align: center;
 
-h2 {
-  margin-bottom: 15px;
-  color: v.$primary-color;
-}
+  h2 {
+    color: v.$text-color;
+    margin-bottom: 15px;
+  }
 
-form {
-  display: flex;
-  flex-direction: column;
-}
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 
-label {
-  text-align: left;
-  margin-top: 10px;
-  font-size: 14px;
-  font-weight: bold;
-  color: v.$gray;
-}
+    label {
+      text-align: left;
+      font-weight: bold;
+      color: v.$gray;
+    }
 
-input {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-top: 5px;
-  font-size: 14px;
-}
+    input {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
 
-button {
-  @include m.button-styles;
-  margin-top: 15px;
+    button {
+      @include m.button-styles;
+    }
+  }
+
+  .login-link {
+    margin-top: 15px;
+    font-size: 14px;
+    color: v.$gray;
+
+    a {
+      color: v.$primary-color;
+      text-decoration: none;
+      font-weight: bold;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
 }

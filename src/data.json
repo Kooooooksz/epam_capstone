@@ -9,7 +9,7 @@
         "course_001",
         "course_002"
       ],
-      "created_at": "2024-03-26",
+      "created_at": "26/03/2024",
       "id": "e124"
     },
     {
@@ -21,7 +21,7 @@
         "course_001",
         "course_003"
       ],
-      "created_at": "2024-02-15",
+      "created_at": "15/02/2024",
       "progress": {
         "course_001": "50%",
         "course_003": "30%"
@@ -37,7 +37,7 @@
         "course_002",
         "course_003"
       ],
-      "created_at": "2024-03-01",
+      "created_at": "01/03/2024",
       "progress": {
         "course_002": "80%",
         "course_003": "60%"
@@ -52,7 +52,7 @@
       "courses": [
         "course_002"
       ],
-      "created_at": "2023-12-10",
+      "created_at": "10/12/2023",
       "assigned_courses": [
         "course_002"
       ],
@@ -66,7 +66,7 @@
       "courses": [
         "course_003"
       ],
-      "created_at": "2024-01-05",
+      "created_at": "05/01/2024",
       "assigned_courses": [
         "course_003"
       ],
@@ -87,6 +87,24 @@
       "password": "janosch",
       "role": "student",
       "email": "janosch",
+      "courses": [],
+      "created_at": "3/31/2025"
+    },
+    {
+      "id": "1b96",
+      "name": "admin2",
+      "password": "aaa",
+      "role": "student",
+      "email": "aaa",
+      "courses": [],
+      "created_at": "3/31/2025"
+    },
+    {
+      "id": "25e4",
+      "name": "Uj Versenyzo",
+      "password": "123456",
+      "role": "student",
+      "email": "newcontest@gmail.com",
       "courses": [],
       "created_at": "3/31/2025"
     }

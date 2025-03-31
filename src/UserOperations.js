@@ -11,6 +11,12 @@ export class User {
   }
 }
 
+export async function getUsers() {
+  const response = await fetch(BASE_URL);
+  const users = await response.json();
+  return users;
+}
+
 export async function addUser(user) {
   const response = await fetch(BASE_URL, {
     method: "POST",

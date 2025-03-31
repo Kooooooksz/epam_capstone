@@ -37,3 +37,19 @@ input {
 button {
   @include m.button-styles;
 }
+
+.register-link {
+  margin-top: 10px;
+  font-size: 14px;
+
+  a {
+    color: v.$primary-color;
+    text-decoration: none;
+    font-weight: bold;
+
+    &:hover {
+      text-decoration: underline;
+      color: v.$secondary-color;
+    }
+  }
+}
