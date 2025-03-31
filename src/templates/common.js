@@ -28,6 +28,7 @@ export const insertNavMenu = function (header) {
     <ul class="nav-links">
         <li><a class="home" href="#">Home</a></li>
         <li><a class="my_courses" href="#">My Courses</a></li>
+        <li><a class="contacts" href="#">Contacts</a></li>
         <li class="user-menu">
             <a href="#">${
               JSON.parse(localStorage.getItem("currentUser")).name
@@ -61,6 +62,9 @@ export const navMenuClick = function (header) {
     }
     if (e.target.classList.contains("home")) {
       location.assign("../home/home.html");
+    }
+    if (e.target.classList.contains("contacts")) {
+      location.assign("../contacts/contacts.html");
     }
   });
 };
