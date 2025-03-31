@@ -1,0 +1,50 @@
+@use "variables" as v;
+@use "mixins" as m;
+
+body {
+  background: v.$background-color;
+  font-family: Arial, sans-serif;
+  color: v.$text-color;
+  @include m.flex-center;
+  height: 100vh;
+}
+
+.container {
+  background: v.$white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 350px;
+  text-align: center;
+  @include m.box-shadow;
+}
+
+h2 {
+  margin-bottom: 15px;
+  color: v.$primary-color;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  text-align: left;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: v.$gray;
+}
+
+input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+button {
+  @include m.button-styles;
+  margin-top: 15px;
+}

@@ -5,7 +5,10 @@
       "password": "admin123",
       "role": "admin",
       "email": "admin@learningplatform.com",
-      "courses": ["course_001", "course_002"],
+      "courses": [
+        "course_001",
+        "course_002"
+      ],
       "created_at": "2024-03-26",
       "id": "e124"
     },
@@ -14,7 +17,10 @@
       "password": "password123",
       "role": "student",
       "email": "john.doe@example.com",
-      "courses": ["course_001", "course_003"],
+      "courses": [
+        "course_001",
+        "course_003"
+      ],
       "created_at": "2024-02-15",
       "progress": {
         "course_001": "50%",
@@ -27,7 +33,10 @@
       "password": "securePass456",
       "role": "student",
       "email": "jane.smith@example.com",
-      "courses": ["course_002", "course_003"],
+      "courses": [
+        "course_002",
+        "course_003"
+      ],
       "created_at": "2024-03-01",
       "progress": {
         "course_002": "80%",
@@ -40,9 +49,13 @@
       "password": "jonesPass789",
       "role": "teacher",
       "email": "mary.jones@learningplatform.com",
-      "courses": ["course_002"],
+      "courses": [
+        "course_002"
+      ],
       "created_at": "2023-12-10",
-      "assigned_courses": ["course_002"],
+      "assigned_courses": [
+        "course_002"
+      ],
       "id": "0e51"
     },
     {
@@ -50,10 +63,32 @@
       "password": "markPass123",
       "role": "teacher",
       "email": "mark.taylor@learningplatform.com",
-      "courses": ["course_003"],
+      "courses": [
+        "course_003"
+      ],
       "created_at": "2024-01-05",
-      "assigned_courses": ["course_003"],
+      "assigned_courses": [
+        "course_003"
+      ],
       "id": "d19d"
+    },
+    {
+      "id": "cef4",
+      "name": "Anyad",
+      "password": "anyadat",
+      "role": "student",
+      "email": "anyadat",
+      "courses": [],
+      "created_at": "3/31/2025"
+    },
+    {
+      "id": "edbf",
+      "name": "Jancsi",
+      "password": "janosch",
+      "role": "student",
+      "email": "janosch",
+      "courses": [],
+      "created_at": "3/31/2025"
     }
   ],
   "courses": [
