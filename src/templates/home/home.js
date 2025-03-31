@@ -125,6 +125,7 @@ const filterCourses = async function (e) {
 
   return courses;
 };
+
 const courseList = document.querySelector(".course-list");
 
 document.addEventListener("click", function (e) {

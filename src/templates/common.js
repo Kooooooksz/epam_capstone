@@ -17,7 +17,7 @@ export const insertNavMenu = function (header) {
           <h1>LearnHub</h1>
         </div>
         <ul class="nav-links">
-          <li><a href="home/home.html">Home</a></li>
+          <li><a class="home" href="#">Home</a></li>
           <li><a class="my_courses" href="#">My Courses</a></li>
           <li><a href="#">Profile</a></li>
           <li><a class="logout" href="#">Logout</a></li>
@@ -40,6 +40,9 @@ export const navMenuClick = function (header) {
     }
     if (e.target.classList.contains("my_courses")) {
       location.assign("../my-courses/my-courses.html");
+    }
+    if (e.target.classList.contains("home")) {
+      location.assign("../home/home.html");
     }
   });
 };

@@ -1,0 +1,39 @@
+@use "variables" as v;
+@use "mixins" as m;
+
+body {
+  background-color: v.$background-color;
+  color: v.$text-color;
+  font-family: Arial, sans-serif;
+  @include m.flex-center;
+  height: 100vh;
+}
+
+div {
+  background: v.$white;
+  padding: 20px;
+  border-radius: 8px;
+  @include m.box-shadow;
+  text-align: center;
+  width: 300px;
+}
+
+h2 {
+  margin-bottom: 15px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid v.$gray;
+  border-radius: 5px;
+}
+
+button {
+  @include m.button-styles;
+}
