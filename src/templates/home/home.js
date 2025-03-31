@@ -1,9 +1,12 @@
 import { fetchData, navMenuClick, checkUserSignedIn } from "../common.js";
+import { addUser } from "../../UserOperations.js";
 
 const courseListEl = document.querySelector(".course-list");
 const sortSelect = document.querySelector(".sort-select");
 const searchInput = document.querySelector(".search-input");
 const header = document.querySelector("header");
+const btnAddUser = document.querySelector(".add-user");
+
 checkUserSignedIn(header);
 navMenuClick(header);
 
@@ -145,3 +148,8 @@ document.addEventListener("click", function (e) {
 });
 
 console.log(document.activeElement);
+
+btnAddUser.addEventListener("click", async function (e) {
+  e.preventDefault();
+  addUser("Kicsia@", "kicsia@gmail.com");
+});

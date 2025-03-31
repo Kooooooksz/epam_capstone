@@ -6,7 +6,8 @@
       "role": "admin",
       "email": "admin@learningplatform.com",
       "courses": ["course_001", "course_002"],
-      "created_at": "2024-03-26"
+      "created_at": "2024-03-26",
+      "id": "e124"
     },
     {
       "name": "john_doe",
@@ -18,7 +19,8 @@
       "progress": {
         "course_001": "50%",
         "course_003": "30%"
-      }
+      },
+      "id": "0272"
     },
     {
       "name": "jane_smith",
@@ -30,7 +32,8 @@
       "progress": {
         "course_002": "80%",
         "course_003": "60%"
-      }
+      },
+      "id": "2bd5"
     },
     {
       "name": "mary_jones",
@@ -39,7 +42,8 @@
       "email": "mary.jones@learningplatform.com",
       "courses": ["course_002"],
       "created_at": "2023-12-10",
-      "assigned_courses": ["course_002"]
+      "assigned_courses": ["course_002"],
+      "id": "0e51"
     },
     {
       "name": "mark_taylor",
@@ -48,7 +52,8 @@
       "email": "mark.taylor@learningplatform.com",
       "courses": ["course_003"],
       "created_at": "2024-01-05",
-      "assigned_courses": ["course_003"]
+      "assigned_courses": ["course_003"],
+      "id": "d19d"
     }
   ],
   "courses": [
@@ -70,7 +75,8 @@
           "title": "Control Flow",
           "content": "Understanding conditionals and loops."
         }
-      ]
+      ],
+      "id": "5a79"
     },
     {
       "course_id": "course_002",
@@ -90,7 +96,8 @@
           "title": "CSS Styling",
           "content": "Learn the basics of styling webpages with CSS."
         }
-      ]
+      ],
+      "id": "b0bb"
     },
     {
       "course_id": "course_003",
@@ -110,7 +117,8 @@
           "title": "DOM Manipulation",
           "content": "Interacting with the DOM using JavaScript."
         }
-      ]
+      ],
+      "id": "d693"
     },
     {
       "course_id": "course_004",
@@ -130,7 +138,8 @@
           "title": "Asynchronous JavaScript",
           "content": "Promises, async/await, and event loop."
         }
-      ]
+      ],
+      "id": "8765"
     },
     {
       "course_id": "course_005",
@@ -150,7 +159,8 @@
           "title": "Control Flow",
           "content": "Loops, conditionals, and functions in Python."
         }
-      ]
+      ],
+      "id": "087a"
     },
     {
       "course_id": "course_006",
@@ -170,7 +180,8 @@
           "title": "Sorting Algorithms",
           "content": "QuickSort, MergeSort, and BubbleSort explained."
         }
-      ]
+      ],
+      "id": "f7a1"
     },
     {
       "course_id": "course_007",
@@ -190,7 +201,8 @@
           "title": "Unsupervised Learning",
           "content": "Clustering and dimensionality reduction techniques."
         }
-      ]
+      ],
+      "id": "0ee4"
     },
     {
       "course_id": "course_008",
@@ -210,7 +222,8 @@
           "title": "State and Props",
           "content": "Managing component state and props in React."
         }
-      ]
+      ],
+      "id": "c2c8"
     },
     {
       "course_id": "course_009",
@@ -230,7 +243,8 @@
           "title": "Building an API",
           "content": "Creating a RESTful API using Express.js."
         }
-      ]
+      ],
+      "id": "6cb1"
     },
     {
       "course_id": "course_010",
@@ -250,7 +264,8 @@
           "title": "Ethical Hacking",
           "content": "Basic penetration testing and security assessments."
         }
-      ]
+      ],
+      "id": "0a47"
     },
     {
       "course_id": "course_011",
@@ -270,7 +285,8 @@
           "title": "NoSQL Databases",
           "content": "Understanding document-based databases like MongoDB."
         }
-      ]
+      ],
+      "id": "d7d5"
     },
     {
       "course_id": "course_012",
@@ -290,7 +306,8 @@
           "title": "OOP in C++",
           "content": "Introduction to object-oriented programming in C++."
         }
-      ]
+      ],
+      "id": "557d"
     },
     {
       "course_id": "course_013",
@@ -310,7 +327,8 @@
           "title": "Neural Networks",
           "content": "Basics of deep learning and neural networks."
         }
-      ]
+      ],
+      "id": "3dfc"
     },
     {
       "course_id": "course_014",
@@ -330,7 +348,8 @@
           "title": "Templates and Views",
           "content": "Using Django templates and views to build dynamic web pages."
         }
-      ]
+      ],
+      "id": "9370"
     }
   ]
 }
