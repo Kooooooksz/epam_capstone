@@ -1,7 +1,7 @@
-import { fetchData, insertNavMenu, navMenuClick } from "../common.js";
+import { fetchData, navMenuClick, checkUserSignedIn } from "../common.js";
 
 const header = document.querySelector("header");
-insertNavMenu(header);
+checkUserSignedIn(header);
 navMenuClick(header);
 
 const currentUser = JSON.parse(localStorage.getItem("currentUser")) || null;

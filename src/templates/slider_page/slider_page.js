@@ -1,7 +1,7 @@
-import { fetchData, insertNavMenu, navMenuClick } from "../common.js";
+import { checkUserSignedIn, navMenuClick } from "../common.js";
 
 const header = document.querySelector("header");
-insertNavMenu(header);
+checkUserSignedIn(header);
 navMenuClick(header);
 
 const sliderEl = document.querySelector(".slider");

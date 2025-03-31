@@ -11,18 +11,36 @@ export async function fetchData() {
   }
 }
 
+export const checkUserSignedIn = (header) => {
+  if (!localStorage.getItem("currentUser")) {
+    location.assign("../login/login.html");
+  } else {
+    insertNavMenu(header);
+  }
+};
+
 export const insertNavMenu = function (header) {
+  console.log();
   const navMenu = ` <nav>
-        <div class="logo">
-          <h1>LearnHub</h1>
-        </div>
-        <ul class="nav-links">
-          <li><a class="home" href="#">Home</a></li>
-          <li><a class="my_courses" href="#">My Courses</a></li>
-          <li><a href="#">Profile</a></li>
-          <li><a class="logout" href="#">Logout</a></li>
-        </ul>
-      </nav>`;
+    <div class="logo">
+        <h1>LearnHub</h1>
+    </div>
+    <ul class="nav-links">
+        <li><a class="home" href="#">Home</a></li>
+        <li><a class="my_courses" href="#">My Courses</a></li>
+        <li class="user-menu">
+            <a href="#">${
+              JSON.parse(localStorage.getItem("currentUser")).name
+            }</a>
+            <ul class="submenu">
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a class="logout" href="#">Logout</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+`;
   header.insertAdjacentHTML("beforeend", navMenu);
 };
 

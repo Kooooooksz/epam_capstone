@@ -1,18 +1,17 @@
-import { fetchData, insertNavMenu, navMenuClick } from "../common.js";
+import { fetchData, navMenuClick, checkUserSignedIn } from "../common.js";
 
 const courseListEl = document.querySelector(".course-list");
 const sortSelect = document.querySelector(".sort-select");
 const searchInput = document.querySelector(".search-input");
 const header = document.querySelector("header");
+checkUserSignedIn(header);
+navMenuClick(header);
 
 searchInput.value = "";
 let data = null;
 let courses = [];
 let currentPage = 1;
 const itemsPerPage = 10;
-
-insertNavMenu(header);
-navMenuClick(header);
 
 async function loadCourses(coursesP) {
   data = await fetchData();
