@@ -25,11 +25,15 @@ async function loadCourses(coursesP) {
   }
 
   courses = coursesP === undefined ? data.courses : coursesP;
-  renderPage(currentPage);
+  if (coursesP) {
+    renderPage(currentPage, true);
+  } else {
+    renderPage(currentPage);
+  }
   setupPagination();
 }
 
-function renderPage(page) {
+function renderPage(page, filtered = false) {
   courseListEl.innerHTML = "";
 
   const start = (page - 1) * itemsPerPage;
@@ -40,14 +44,27 @@ function renderPage(page) {
     const courseElem = document.createElement("div");
     courseElem.classList.add("course-card");
     courseElem.innerHTML = `
-      <h3 class="course-name">${elem.course_name}</h3>
-      <p>${elem.description}</p>
-      <img src=../../assets/course_images/${elem.course_image} height="300" width="300">
-      <p>This course was created at: ${elem.created_at}</p>
-      <a href="#" class="course-link">View Course</a>
-    `;
+        <h3 class="course-name">${elem.course_name}</h3>
+        <p>${elem.description}</p>
+        <img src=../../assets/course_images/${elem.course_image} height="300" width="300">
+        <p>This course was created at: ${elem.created_at}</p>
+        <a href="#" class="course-link">View Course</a>
+      `;
     courseListEl.appendChild(courseElem);
   });
+  if (filtered) {
+    [...courseList.children].forEach((card) => {
+      if (card.classList.contains("course-card")) {
+        const courseNameEl = card.querySelector(".course-name");
+        const regex = new RegExp(searchInput.value, "gi");
+        courseNameEl.innerHTML = courseNameEl.textContent.replace(
+          regex,
+          (match) => `<span class="highlight">${match}</span>`
+        );
+        console.log(courseNameEl.innerHTML);
+      }
+    });
+  }
 
   updatePaginationControls();
 }
@@ -130,26 +147,6 @@ const filterCourses = async function (e) {
 
 const courseList = document.querySelector(".course-list");
 
-document.addEventListener("click", function (e) {
-  if (document.activeElement === searchInput) {
-    searchInput.addEventListener("keydown", filterCourses);
-    [...courseList.children].forEach((card) => {
-      if (card.classList.contains("course-card")) {
-        const courseNameEl = card.querySelector(".course-name");
-        const regex = new RegExp(searchInput.value, "gi");
-        courseNameEl.innerHTML = courseNameEl.textContent.replace(
-          regex,
-          (match) => `<span class="highlight">${match}</span>`
-        );
-        console.log(courseNameEl.innerHTML);
-      }
-    });
-  }
-});
+searchInput.addEventListener("input", filterCourses);
 
 console.log(document.activeElement);
-
-btnAddUser.addEventListener("click", async function (e) {
-  e.preventDefault();
-  addUser("Kicsia@", "kicsia@gmail.com");
-});
