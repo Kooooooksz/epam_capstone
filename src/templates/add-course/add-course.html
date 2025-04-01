@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../styles/add-course.css">
+  </head>
+  <body>
+    <div class="add-course-form">
+      <h2>Add New Course</h2>
+      <form>
+        <div class="form-group">
+          <label for="course-name">Course Name</label>
+          <input
+            type="text"
+            id="course-name"
+            placeholder="Enter course name"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="course-description">Course Description</label>
+          <textarea
+            id="course-description"
+            placeholder="Enter course description"
+            rows="4"
+            required
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="submit-btn">Add Course</button>
+          </div>
+    </div>
+    <script type="module" src="add-course.js"></script>
+  </body>
+</html>

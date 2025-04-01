@@ -1,30 +1,21 @@
 import { fetchData, navMenuClick, checkUserSignedIn } from "../common.js";
-import { addUser } from "../../UserOperations.js";
+import { getCourses } from "../../CourseOperations.js";
 
 const courseListEl = document.querySelector(".course-list");
 const sortSelect = document.querySelector(".sort-select");
 const searchInput = document.querySelector(".search-input");
 const header = document.querySelector("header");
-const btnAddUser = document.querySelector(".add-user");
 
 checkUserSignedIn(header);
 navMenuClick(header);
 
 searchInput.value = "";
-let data = null;
 let courses = [];
 let currentPage = 1;
 const itemsPerPage = 10;
 
 async function loadCourses(coursesP) {
-  data = await fetchData();
-
-  if (!data || !data.courses) {
-    console.error("There are no courses loaded!");
-    return;
-  }
-
-  courses = coursesP === undefined ? data.courses : coursesP;
+  courses = coursesP === undefined ? await getCourses() : coursesP;
   if (coursesP) {
     renderPage(currentPage, true);
   } else {
@@ -52,6 +43,19 @@ function renderPage(page, filtered = false) {
       `;
     courseListEl.appendChild(courseElem);
   });
+  const addCourseCard = document.createElement("div");
+
+  if (page === Math.ceil(courses.length / itemsPerPage) && !filtered) {
+    addCourseCard.classList.add("course-card", "add-course-card");
+    addCourseCard.innerHTML = `
+      <div class="add-course-content">
+          <span class="plus-sign">+</span>
+          <p>Add New Course</p>
+      </div>
+  `;
+  }
+  courseListEl.appendChild(addCourseCard);
+
   if (filtered) {
     [...courseList.children].forEach((card) => {
       if (card.classList.contains("course-card")) {
@@ -141,12 +145,19 @@ const filterCourses = async function (e) {
   );
 
   loadCourses(courses);
-
+  updatePaginationControls();
+  setupPagination();
   return courses;
 };
 
 const courseList = document.querySelector(".course-list");
 
 searchInput.addEventListener("input", filterCourses);
+
+courseList.addEventListener("click", function (e) {
+  if (e.target.classList.contains("add-course-card")) {
+    location.assign("../add-course/add-course.html");
+  }
+});
 
 console.log(document.activeElement);

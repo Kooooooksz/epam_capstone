@@ -5,10 +5,7 @@
       "password": "admin123",
       "role": "admin",
       "email": "admin@learningplatform.com",
-      "courses": [
-        "course_001",
-        "course_002"
-      ],
+      "courses": ["course_001", "course_002"],
       "created_at": "26/03/2024",
       "id": "e124"
     },
@@ -17,10 +14,7 @@
       "password": "password123",
       "role": "student",
       "email": "john.doe@example.com",
-      "courses": [
-        "course_001",
-        "course_003"
-      ],
+      "courses": ["course_001", "course_003"],
       "created_at": "15/02/2024",
       "progress": {
         "course_001": "50%",
@@ -33,10 +27,7 @@
       "password": "securePass456",
       "role": "student",
       "email": "jane.smith@example.com",
-      "courses": [
-        "course_002",
-        "course_003"
-      ],
+      "courses": ["course_002", "course_003"],
       "created_at": "01/03/2024",
       "progress": {
         "course_002": "80%",
@@ -49,13 +40,9 @@
       "password": "jonesPass789",
       "role": "teacher",
       "email": "mary.jones@learningplatform.com",
-      "courses": [
-        "course_002"
-      ],
+      "courses": ["course_002"],
       "created_at": "10/12/2023",
-      "assigned_courses": [
-        "course_002"
-      ],
+      "assigned_courses": ["course_002"],
       "id": "0e51"
     },
     {
@@ -63,13 +50,9 @@
       "password": "markPass123",
       "role": "teacher",
       "email": "mark.taylor@learningplatform.com",
-      "courses": [
-        "course_003"
-      ],
+      "courses": ["course_003"],
       "created_at": "05/01/2024",
-      "assigned_courses": [
-        "course_003"
-      ],
+      "assigned_courses": ["course_003"],
       "id": "d19d"
     },
     {
@@ -107,6 +90,15 @@
       "email": "newcontest@gmail.com",
       "courses": [],
       "created_at": "3/31/2025"
+    },
+    {
+      "id": "66b1",
+      "name": "Morrrr",
+      "password": "asdfg",
+      "role": "student",
+      "email": "mor@gmail.com",
+      "courses": [],
+      "created_at": "4/1/2025"
     }
   ],
   "courses": [
@@ -403,6 +395,15 @@
         }
       ],
       "id": "9370"
+    },
+    {
+      "id": "117f",
+      "course_name": "Learn Simple C",
+      "description": "Totally not good",
+      "course_image": "picturewillbehere",
+      "teacher": "mary_jones",
+      "created_at": "4/1/2025",
+      "modules": []
     }
   ]
 }

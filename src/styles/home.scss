@@ -196,6 +196,47 @@ footer {
   display: none;
 }
 
+.course-card {
+  width: 330px;
+  height: 430px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  word-wrap: break-word;
+  text-overflow: ellipsis;
+}
+
+.add-course-card {
+  cursor: pointer;
+  background-color: #f8f9fa;
+  border: 2px dashed #28a745;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    background-color: #e9ecef;
+  }
+
+  .add-course-content {
+    text-align: center;
+  }
+
+  .plus-sign {
+    font-size: 50px;
+    color: #28a745;
+    font-weight: bold;
+  }
+}
+
 .highlight {
   background-color: yellow;
 }
