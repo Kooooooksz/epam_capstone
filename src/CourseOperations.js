@@ -27,3 +27,13 @@ export async function addCourse(course) {
   const newCourse = await response.json();
   console.log("Course added:", newCourse);
 }
+
+export async function getCourseByCourseName(name) {
+  const allCourses = await getCourses();
+  return allCourses.find((course) => course.course_name === name);
+}
+
+export async function deleteCourse(id) {
+  await fetch(`${BASE_URL}/${id}`, { method: "DELETE" });
+  console.log(`Course with ID ${id} deleted.`);
+}

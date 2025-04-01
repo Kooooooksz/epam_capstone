@@ -1,5 +1,9 @@
 import { fetchData, navMenuClick, checkUserSignedIn } from "../common.js";
-import { getCourses } from "../../CourseOperations.js";
+import {
+  getCourses,
+  getCourseByCourseName,
+  deleteCourse,
+} from "../../CourseOperations.js";
 
 const courseListEl = document.querySelector(".course-list");
 const sortSelect = document.querySelector(".sort-select");
@@ -39,7 +43,8 @@ function renderPage(page, filtered = false) {
         <p>${elem.description}</p>
         <img src=../../assets/course_images/${elem.course_image} height="300" width="300">
         <p>This course was created at: ${elem.created_at}</p>
-        <a href="#" class="course-link">View Course</a>
+        <a class="course-link" href="#">View Course</a>
+        <a class="course-delete" href="#">Delete Course</a>
       `;
     courseListEl.appendChild(courseElem);
   });
@@ -154,10 +159,27 @@ const courseList = document.querySelector(".course-list");
 
 searchInput.addEventListener("input", filterCourses);
 
-courseList.addEventListener("click", function (e) {
+courseList.addEventListener("click", async function (e) {
+  e.preventDefault();
   if (e.target.classList.contains("add-course-card")) {
     location.assign("../add-course/add-course.html");
   }
-});
 
-console.log(document.activeElement);
+  if (e.target.classList.contains("course-delete")) {
+    const clickedCard = e.target.closest(".course-card");
+    const clickedCourseName =
+      clickedCard.querySelector(".course-name").textContent;
+    const courseAsObject = await getCourseByCourseName(clickedCourseName);
+
+    const confirmation = window.confirm(
+      `Are you sure you want to delete the course: ${clickedCourseName}?`
+    );
+
+    if (confirmation) {
+      console.log(courseAsObject.id);
+      deleteCourse(courseAsObject.id);
+    } else {
+      console.log("Course deletion canceled.");
+    }
+  }
+});
