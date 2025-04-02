@@ -200,6 +200,16 @@ if (window.location.toString().split("/").at(-1) === "home.html") {
       location.assign("../add-course/add-course.html");
     }
 
+    if (e.target.classList.contains("course-link")) {
+      const clickedCard = e.target.closest(".course-card");
+      const clickedCourseName =
+        clickedCard.querySelector(".course-name").textContent;
+      const courseAsObject = await getCourseByCourseName(clickedCourseName);
+      console.log(JSON.stringify(courseAsObject));
+      localStorage.setItem("courseToWatch", JSON.stringify(courseAsObject));
+      location.assign("../course-details/course-details.html");
+    }
+
     if (e.target.classList.contains("course-enroll")) {
       const clickedCard = e.target.closest(".course-card");
       const clickedCourseName =

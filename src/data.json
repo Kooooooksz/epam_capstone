@@ -29,7 +29,14 @@
         "087a",
         "2aeb",
         "d7d5",
-        "5a79"
+        "5a79",
+        "087a",
+        "9370",
+        "087a",
+        "087a",
+        "087a",
+        "0ee4",
+        "0a47"
       ],
       "created_at": "15/02/2024",
       "progress": {
@@ -163,15 +170,6 @@
         }
       ],
       "id": "8765"
-    },
-    {
-      "course_name": "Yoooooo",
-      "description": "Nagyon yooooooooooo",
-      "course_image": "course5.png",
-      "teacher": "",
-      "created_at": "4/1/2025",
-      "modules": [],
-      "id": "087a"
     },
     {
       "course_name": "Data Structures and Algorithms",

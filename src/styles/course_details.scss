@@ -1,0 +1,58 @@
+@use "variables" as v;
+@use "mixins" as m;
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: v.$background-color;
+  color: v.$text-color;
+  margin: 0;
+  padding: 0;
+  @include m.flex-center;
+  height: 100vh;
+}
+
+.container {
+  width: 60%;
+  @include m.flex-center;
+}
+
+.course-card {
+  background: v.$white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 100%;
+  @include m.box-shadow;
+
+  img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+
+  h1 {
+    color: v.$primary-color;
+  }
+
+  p {
+    color: v.$gray;
+    font-size: 16px;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+
+    li {
+      background: v.$primary-color;
+      color: v.$white;
+      padding: 10px;
+      margin: 5px 0;
+      border-radius: 5px;
+    }
+  }
+  .back-home-btn {
+    @include m.button-styles;
+    margin-top: 15px;
+  }
+}
