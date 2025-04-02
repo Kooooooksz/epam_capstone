@@ -20,7 +20,6 @@
       "role": "student",
       "email": "john.doe@example.com",
       "courses": [
-        "5a79",
         "d693",
         "b0bb",
         "087a",
@@ -29,7 +28,8 @@
         "8765",
         "087a",
         "2aeb",
-        "d7d5"
+        "d7d5",
+        "5a79"
       ],
       "created_at": "15/02/2024",
       "progress": {
@@ -263,7 +263,7 @@
       "id": "0a47"
     },
     {
-      "course_name": "Database Management 2",
+      "course_name": "Database Management 3",
       "description": "Modified database",
       "course_image": "pfffff",
       "teacher": "",

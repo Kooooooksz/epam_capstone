@@ -49,7 +49,15 @@ if (window.location.toString().split("/").at(-1) === "home.html") {
             elem.course_image
           } height="300" width="300">
           <p>This course was created at: ${elem.created_at}</p>
-          <span><a class="course-link" href="#">View Course</a><a class="course-update" href="#">Update Course</a><a class="course-delete" href="#">Delete Course</a></span>
+          <span>${
+            currentUser.courses.includes(elem.id)
+              ? `<a class="course-link" href="#">View Course</a>`
+              : ""
+          }${
+        currentUser.role === "admin"
+          ? `<a class="course-update" href="#">Update Course</a><a class="course-delete" href="#">Delete Course</a></span>`
+          : ""
+      }
           ${
             !currentUser.courses.includes(elem.id)
               ? `<a class="course-enroll" href="#">
