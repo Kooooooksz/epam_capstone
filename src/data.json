@@ -204,24 +204,12 @@
       "id": "8765"
     },
     {
-      "course_id": "course_005",
-      "course_name": "Python for Beginners",
-      "description": "Learn Python programming from scratch.",
+      "course_name": "Yoooooo",
+      "description": "Nagyon yooooooooooo",
       "course_image": "course5.png",
-      "teacher": "susan_miller",
-      "created_at": "2024-04-01",
-      "modules": [
-        {
-          "module_id": "module_009",
-          "title": "Python Basics",
-          "content": "Introduction to Python syntax and data types."
-        },
-        {
-          "module_id": "module_010",
-          "title": "Control Flow",
-          "content": "Loops, conditionals, and functions in Python."
-        }
-      ],
+      "teacher": "",
+      "created_at": "4/1/2025",
+      "modules": [],
       "id": "087a"
     },
     {
@@ -309,45 +297,21 @@
       "id": "6cb1"
     },
     {
-      "course_id": "course_010",
-      "course_name": "Cybersecurity Fundamentals",
-      "description": "Learn about the basics of cybersecurity and ethical hacking.",
-      "course_image": "course10.png",
-      "teacher": "david_clark",
-      "created_at": "2024-06-15",
-      "modules": [
-        {
-          "module_id": "module_019",
-          "title": "Network Security",
-          "content": "Understanding firewalls, VPNs, and encryption."
-        },
-        {
-          "module_id": "module_020",
-          "title": "Ethical Hacking",
-          "content": "Basic penetration testing and security assessments."
-        }
-      ],
+      "course_name": "Yoooooo",
+      "description": "Nagyon yooooooooooo",
+      "course_image": "pfej",
+      "teacher": "",
+      "created_at": "4/1/2025",
+      "modules": [],
       "id": "0a47"
     },
     {
-      "course_id": "course_011",
-      "course_name": "Database Management",
-      "description": "Learn how to design and manage databases using SQL and NoSQL.",
-      "course_image": "course11.png",
-      "teacher": "mary_jones",
-      "created_at": "2021-07-01",
-      "modules": [
-        {
-          "module_id": "module_021",
-          "title": "SQL Basics",
-          "content": "Creating and querying databases using SQL."
-        },
-        {
-          "module_id": "module_022",
-          "title": "NoSQL Databases",
-          "content": "Understanding document-based databases like MongoDB."
-        }
-      ],
+      "course_name": "Database Management 2",
+      "description": "Modified database",
+      "course_image": "pfffff",
+      "teacher": "",
+      "created_at": "4/2/2025",
+      "modules": [],
       "id": "d7d5"
     },
     {
@@ -412,6 +376,15 @@
         }
       ],
       "id": "9370"
+    },
+    {
+      "id": "2aeb",
+      "course_name": "Very newch",
+      "description": "Verrry new",
+      "course_image": "pfffff",
+      "teacher": "",
+      "created_at": "4/2/2025",
+      "modules": []
     }
   ]
 }
