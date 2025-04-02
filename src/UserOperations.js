@@ -27,3 +27,11 @@ export async function addUser(user) {
   const newUser = await response.json();
   console.log("User added:", newUser);
 }
+
+export async function updateUser(id, user) {
+  const response = await fetch(`${BASE_URL}/${id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(user),
+  });
+}

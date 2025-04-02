@@ -3,9 +3,8 @@ import {
   getCourses,
   getCourseByCourseName,
   deleteCourse,
-  updateCourse,
-  Course,
 } from "../../CourseOperations.js";
+import { updateUser } from "../../UserOperations.js";
 
 if (window.location.toString().split("/").at(-1) === "home.html") {
   const courseListEl = document.querySelector(".course-list");
@@ -20,6 +19,8 @@ if (window.location.toString().split("/").at(-1) === "home.html") {
   let courses = [];
   let currentPage = 1;
   const itemsPerPage = 10;
+
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
   async function loadCourses(coursesP) {
     courses = coursesP === undefined ? await getCourses() : coursesP;
@@ -44,10 +45,20 @@ if (window.location.toString().split("/").at(-1) === "home.html") {
       courseElem.innerHTML = `
           <h3 class="course-name">${elem.course_name}</h3>
           <p>${elem.description}</p>
-          <img src=../../assets/course_images/${elem.course_image} height="300" width="300">
+          <img src=../../assets/course_images/${
+            elem.course_image
+          } height="300" width="300">
           <p>This course was created at: ${elem.created_at}</p>
           <span><a class="course-link" href="#">View Course</a><a class="course-update" href="#">Update Course</a><a class="course-delete" href="#">Delete Course</a></span>
-          
+          ${
+            !currentUser.courses.includes(elem.id)
+              ? `<a class="course-enroll" href="#">
+              Enroll
+            </a>`
+              : `<a class="course-disenroll" href="#">
+              Disenroll
+            </a>`
+          }
         `;
       courseListEl.appendChild(courseElem);
     });
@@ -179,6 +190,29 @@ if (window.location.toString().split("/").at(-1) === "home.html") {
       console.log(JSON.stringify(courseAsObject));
       localStorage.setItem("course", JSON.stringify(courseAsObject));
       location.assign("../add-course/add-course.html");
+    }
+
+    if (e.target.classList.contains("course-enroll")) {
+      const clickedCard = e.target.closest(".course-card");
+      const clickedCourseName =
+        clickedCard.querySelector(".course-name").textContent;
+      const courseAsObject = await getCourseByCourseName(clickedCourseName);
+      currentUser.courses.push(courseAsObject.id);
+      localStorage.setItem("currentUser", JSON.stringify(currentUser));
+      await updateUser(currentUser.id, currentUser);
+    }
+
+    if (e.target.classList.contains("course-disenroll")) {
+      const clickedCard = e.target.closest(".course-card");
+      const clickedCourseName =
+        clickedCard.querySelector(".course-name").textContent;
+      const courseAsObject = await getCourseByCourseName(clickedCourseName);
+      currentUser.courses.splice(
+        currentUser.courses.findIndex((elem) => elem === courseAsObject.id),
+        1
+      );
+      localStorage.setItem("currentUser", JSON.stringify(currentUser));
+      await updateUser(currentUser.id, currentUser);
     }
 
     if (e.target.classList.contains("course-delete")) {

@@ -6,8 +6,10 @@
       "role": "admin",
       "email": "admin@learningplatform.com",
       "courses": [
-        "course_001",
-        "course_002"
+        "5a79",
+        "b0bb",
+        "d693",
+        "f7a1"
       ],
       "created_at": "26/03/2024",
       "id": "e124"
@@ -18,8 +20,16 @@
       "role": "student",
       "email": "john.doe@example.com",
       "courses": [
-        "course_001",
-        "course_003"
+        "5a79",
+        "d693",
+        "b0bb",
+        "087a",
+        "f7a1",
+        "087a",
+        "8765",
+        "087a",
+        "2aeb",
+        "d7d5"
       ],
       "created_at": "15/02/2024",
       "progress": {
@@ -34,8 +44,8 @@
       "role": "student",
       "email": "jane.smith@example.com",
       "courses": [
-        "course_002",
-        "course_003"
+        "b0bb",
+        "d693"
       ],
       "created_at": "01/03/2024",
       "progress": {
@@ -50,11 +60,11 @@
       "role": "teacher",
       "email": "mary.jones@learningplatform.com",
       "courses": [
-        "course_002"
+        "b0bb"
       ],
       "created_at": "10/12/2023",
       "assigned_courses": [
-        "course_002"
+        "b0bb"
       ],
       "id": "0e51"
     },
@@ -64,63 +74,17 @@
       "role": "teacher",
       "email": "mark.taylor@learningplatform.com",
       "courses": [
-        "course_003"
+        "d693"
       ],
       "created_at": "05/01/2024",
       "assigned_courses": [
-        "course_003"
+        "d693"
       ],
       "id": "d19d"
-    },
-    {
-      "id": "cef4",
-      "name": "Anyad",
-      "password": "anyadat",
-      "role": "student",
-      "email": "anyadat",
-      "courses": [],
-      "created_at": "3/31/2025"
-    },
-    {
-      "id": "edbf",
-      "name": "Jancsi",
-      "password": "janosch",
-      "role": "student",
-      "email": "janosch",
-      "courses": [],
-      "created_at": "3/31/2025"
-    },
-    {
-      "id": "1b96",
-      "name": "admin2",
-      "password": "aaa",
-      "role": "student",
-      "email": "aaa",
-      "courses": [],
-      "created_at": "3/31/2025"
-    },
-    {
-      "id": "25e4",
-      "name": "Uj Versenyzo",
-      "password": "123456",
-      "role": "student",
-      "email": "newcontest@gmail.com",
-      "courses": [],
-      "created_at": "3/31/2025"
-    },
-    {
-      "id": "66b1",
-      "name": "Morrrr",
-      "password": "asdfg",
-      "role": "student",
-      "email": "mor@gmail.com",
-      "courses": [],
-      "created_at": "4/1/2025"
     }
   ],
   "courses": [
     {
-      "course_id": "course_001",
       "course_name": "Introduction to Programming",
       "description": "Learn the fundamentals of programming with this introductory course.",
       "course_image": "course1.png",
@@ -141,7 +105,6 @@
       "id": "5a79"
     },
     {
-      "course_id": "course_002",
       "course_name": "Web Development Basics",
       "description": "Learn the fundamentals of developing a good-looking, modern webpage.",
       "course_image": "course2.png",
@@ -162,7 +125,6 @@
       "id": "b0bb"
     },
     {
-      "course_id": "course_003",
       "course_name": "JavaScript for Beginners",
       "description": "Learn the fundamentals of JavaScript programming language.",
       "course_image": "course3.png",
@@ -183,8 +145,7 @@
       "id": "d693"
     },
     {
-      "course_id": "course_004",
-      "course_name": "Advanced JavaScript",
+      "course_name": "Very Advanced JavaScript",
       "description": "Deep dive into JavaScript concepts such as closures, promises, and async/await.",
       "course_image": "course4.png",
       "teacher": "jane_doe",
@@ -213,7 +174,6 @@
       "id": "087a"
     },
     {
-      "course_id": "course_006",
       "course_name": "Data Structures and Algorithms",
       "description": "Learn fundamental data structures and algorithms.",
       "course_image": "course6.png",
@@ -234,9 +194,8 @@
       "id": "f7a1"
     },
     {
-      "course_id": "course_007",
       "course_name": "Machine Learning Basics",
-      "description": "Introduction to machine learning concepts and techniques.",
+      "description": "Introduction to machine learning concepts and techniques.alalalala",
       "course_image": "course7.png",
       "teacher": "alice_watson",
       "created_at": "2022-05-01",
@@ -255,7 +214,6 @@
       "id": "0ee4"
     },
     {
-      "course_id": "course_008",
       "course_name": "React.js Fundamentals",
       "description": "Learn the basics of React.js for modern frontend development.",
       "course_image": "course8.png",
@@ -276,7 +234,6 @@
       "id": "c2c8"
     },
     {
-      "course_id": "course_009",
       "course_name": "Node.js for Beginners",
       "description": "Learn how to build backend applications using Node.js.",
       "course_image": "course9.png",
@@ -336,7 +293,6 @@
       "id": "557d"
     },
     {
-      "course_id": "course_013",
       "course_name": "Artificial Intelligence Basics",
       "description": "Learn about artificial intelligence and neural networks.",
       "course_image": "course13.png",
@@ -357,7 +313,6 @@
       "id": "3dfc"
     },
     {
-      "course_id": "course_014",
       "course_name": "Django Web Development",
       "description": "Learn how to develop web applications using Django.",
       "course_image": "course14.png",
