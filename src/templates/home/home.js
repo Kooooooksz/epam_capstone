@@ -6,249 +6,274 @@ import {
 } from "../../CourseOperations.js";
 import { updateUser } from "../../UserOperations.js";
 
-if (window.location.toString().split("/").at(-1) === "home.html") {
-  const courseListEl = document.querySelector(".course-list");
-  const sortSelect = document.querySelector(".sort-select");
-  const searchInput = document.querySelector(".search-input");
-  const header = document.querySelector("header");
+const courseListEl = document.querySelector(".course-list");
+const sortSelect = document.querySelector(".sort-select");
+const searchInput = document.querySelector(".search-input");
+searchInput.value = "";
+const header = document.querySelector("header");
+const courseList = document.querySelector(".course-list");
 
-  checkUserSignedIn(header);
-  navMenuClick(header);
+checkUserSignedIn(header);
+navMenuClick(header);
 
-  searchInput.value = "";
-  let courses = [];
-  let currentPage = 1;
-  const itemsPerPage = 10;
+let courses = [];
+let currentPage = 1;
+const itemsPerPage = 10;
 
-  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
-  async function loadCourses(coursesP) {
-    courses = coursesP === undefined ? await getCourses() : coursesP;
-    if (coursesP) {
-      renderPage(currentPage, true);
-    } else {
-      renderPage(currentPage);
-    }
-    setupPagination();
+async function loadCourses(coursesP) {
+  courses = coursesP === undefined ? await getCourses() : coursesP;
+  if (coursesP) {
+    renderPage(currentPage, true);
+  } else {
+    renderPage(currentPage);
+  }
+  setupPagination();
+}
+
+function renderPage(page, filtered = false) {
+  courseListEl.innerHTML = "";
+
+  const paginatedCourses = getPaginatedCourses(page);
+
+  paginatedCourses.forEach((course) => {
+    const courseElem = createCourseCard(course);
+    courseListEl.appendChild(courseElem);
+  });
+
+  if (shouldShowAddCourseCard(page, filtered)) {
+    const addCourseCard = createAddCourseCard();
+    courseListEl.appendChild(addCourseCard);
   }
 
-  function renderPage(page, filtered = false) {
-    courseListEl.innerHTML = "";
+  if (filtered) {
+    highlightSearchMatches();
+  }
 
-    const start = (page - 1) * itemsPerPage;
-    const end = start + itemsPerPage;
-    const paginatedCourses = courses.slice(start, end);
+  updatePaginationControls();
+}
 
-    paginatedCourses.forEach((elem) => {
-      const courseElem = document.createElement("div");
-      courseElem.classList.add("course-card");
-      courseElem.innerHTML = `
-          <h3 class="course-name">${elem.course_name}</h3>
-          <p>${elem.description}</p>
-          <img src=../../assets/course_images/${
-            elem.course_image
-          } height="300" width="300">
-          <p>This course was created at: ${elem.created_at}</p>
-          <span>${
-            currentUser.courses.includes(elem.id)
-              ? `<a class="course-link" href="#">View Course</a>`
-              : ""
-          }${
-        currentUser.role === "admin"
-          ? `<a class="course-update" href="#">Update Course</a><a class="course-delete" href="#">Delete Course</a></span>`
+function getPaginatedCourses(page) {
+  const start = (page - 1) * itemsPerPage;
+  const end = start + itemsPerPage;
+  return courses.slice(start, end);
+}
+
+function createCourseCard(course) {
+  const courseElem = document.createElement("div");
+  courseElem.classList.add("course-card");
+
+  const isEnrolled = currentUser.courses.includes(course.id);
+  const isAdmin = currentUser.role === "admin";
+
+  courseElem.innerHTML = `
+    <h3 class="course-name">${course.course_name}</h3>
+    <p>${course.description}</p>
+    <img src="../../assets/course_images/${
+      course.course_image
+    }" height="300" width="300">
+    <p>This course was created at: ${course.created_at}</p>
+    <span>
+      ${isEnrolled ? `<a class="course-link" href="#">View Course</a>` : ""}
+      ${
+        isAdmin
+          ? `<a class="course-update" href="#">Update Course</a>
+           <a class="course-delete" href="#">Delete Course</a>`
           : ""
       }
-          ${
-            !currentUser.courses.includes(elem.id)
-              ? `<a class="course-enroll" href="#">
-              Enroll
-            </a>`
-              : `<a class="course-disenroll" href="#">
-              Disenroll
-            </a>`
-          }
-        `;
-      courseListEl.appendChild(courseElem);
-    });
-    const addCourseCard = document.createElement("div");
-
-    if (page === Math.ceil(courses.length / itemsPerPage) && !filtered) {
-      addCourseCard.classList.add("course-card", "add-course-card");
-      addCourseCard.innerHTML = `
-        <div class="add-course-content">
-            <span class="plus-sign">+</span>
-            <p>Add New Course</p>
-        </div>
-    `;
+    </span>
+    ${
+      !isEnrolled
+        ? `<a class="course-enroll" href="#">Enroll</a>`
+        : `<a class="course-disenroll" href="#">Disenroll</a>`
     }
-    courseListEl.appendChild(addCourseCard);
+  `;
+  return courseElem;
+}
 
-    if (filtered) {
-      [...courseList.children].forEach((card) => {
-        if (card.classList.contains("course-card")) {
-          const courseNameEl = card.querySelector(".course-name");
-          const regex = new RegExp(searchInput.value, "gi");
-          courseNameEl.innerHTML = courseNameEl.textContent.replace(
-            regex,
-            (match) => `<span class="highlight">${match}</span>`
-          );
-          console.log(courseNameEl.innerHTML);
-        }
+function shouldShowAddCourseCard(page, filtered) {
+  return page === Math.ceil(courses.length / itemsPerPage) && !filtered;
+}
+
+function createAddCourseCard() {
+  const addCourseCard = document.createElement("div");
+  addCourseCard.classList.add("course-card", "add-course-card");
+  addCourseCard.innerHTML = `
+    <div class="add-course-content">
+      <span class="plus-sign">+</span>
+      <p>Add New Course</p>
+    </div>
+  `;
+  return addCourseCard;
+}
+
+function highlightSearchMatches() {
+  [...courseList.children].forEach((card) => {
+    if (card.classList.contains("course-card")) {
+      const courseNameEl = card.querySelector(".course-name");
+      const regex = new RegExp(searchInput.value, "gi");
+      courseNameEl.innerHTML = courseNameEl.textContent.replace(
+        regex,
+        (match) => `<span class="highlight">${match}</span>`
+      );
+    }
+  });
+}
+
+function setupPagination() {
+  document.getElementById("prev").addEventListener("click", () => {
+    if (currentPage > 1) {
+      currentPage--;
+      renderPage(currentPage);
+    }
+  });
+
+  document.getElementById("next").addEventListener("click", () => {
+    if (currentPage < Math.ceil(courses.length / itemsPerPage)) {
+      currentPage++;
+      renderPage(currentPage);
+    }
+  });
+
+  updatePaginationControls();
+}
+
+function updatePaginationControls() {
+  document.getElementById(
+    "page-info"
+  ).textContent = `Page ${currentPage} of ${Math.ceil(
+    courses.length / itemsPerPage
+  )}`;
+  document.getElementById("prev").disabled = currentPage === 1;
+  document.getElementById("next").disabled =
+    currentPage === Math.ceil(courses.length / itemsPerPage);
+}
+
+loadCourses();
+
+const sortCourses = async function (category, order, courseP) {
+  let data = await fetchData();
+  let courses = courseP === undefined ? data.courses : courseP;
+  courses = courses.sort((a, b) => {
+    if (order === "desc") {
+      const temp = a;
+      a = b;
+      b = temp;
+    }
+    if (a[category] < b[category]) {
+      return -1;
+    }
+    if (a[category] > b[category]) {
+      return 1;
+    }
+    return 0;
+  });
+
+  console.log(courses);
+  loadCourses(courses);
+};
+
+sortSelect.addEventListener("click", function (e) {
+  if (e.target.nodeName === "OPTION") {
+    if (searchInput.value.trim() === "") {
+      sortCourses(...e.target.value.split("-"));
+    } else {
+      filterCourses().then((courses) => {
+        sortCourses(...e.target.value.split("-"), courses);
       });
     }
-
-    updatePaginationControls();
   }
+});
 
-  function setupPagination() {
-    document.getElementById("prev").addEventListener("click", () => {
-      if (currentPage > 1) {
-        currentPage--;
-        renderPage(currentPage);
-      }
-    });
+const filterCourses = async function (e) {
+  let { courses } = await fetchData();
+  courses = courses.filter((course) =>
+    course.course_name.toLowerCase().includes(searchInput.value.toLowerCase())
+  );
 
-    document.getElementById("next").addEventListener("click", () => {
-      if (currentPage < Math.ceil(courses.length / itemsPerPage)) {
-        currentPage++;
-        renderPage(currentPage);
-      }
-    });
+  loadCourses(courses);
+  updatePaginationControls();
+  setupPagination();
+  return courses;
+};
 
-    updatePaginationControls();
+searchInput.addEventListener("input", filterCourses);
+
+courseList.addEventListener("click", async function (e) {
+  e.preventDefault();
+  const target = e.target;
+
+  const courseCard = target.closest(".course-card");
+  if (!courseCard) return;
+
+  try {
+    if (courseCard.classList.contains("add-course-card")) {
+      handleAddCourse();
+    } else if (target.classList.contains("course-update")) {
+      await handleCourseUpdate(target);
+    } else if (target.classList.contains("course-link")) {
+      await handleCourseLink(target);
+    } else if (target.classList.contains("course-enroll")) {
+      await handleEnroll(target);
+    } else if (target.classList.contains("course-disenroll")) {
+      await handleDisenroll(target);
+    } else if (target.classList.contains("course-delete")) {
+      await handleDelete(target);
+    }
+  } catch (err) {
+    console.error("An error occurred:", err);
   }
+});
 
-  function updatePaginationControls() {
-    document.getElementById(
-      "page-info"
-    ).textContent = `Page ${currentPage} of ${Math.ceil(
-      courses.length / itemsPerPage
-    )}`;
-    document.getElementById("prev").disabled = currentPage === 1;
-    document.getElementById("next").disabled =
-      currentPage === Math.ceil(courses.length / itemsPerPage);
+function handleAddCourse() {
+  localStorage.removeItem("course");
+  location.assign("../add-course/add-course.html");
+}
+
+async function handleCourseUpdate(target) {
+  const course = await findCourse(target);
+  localStorage.setItem("course", JSON.stringify(course));
+  location.assign("../add-course/add-course.html");
+}
+
+async function handleCourseLink(target) {
+  const course = await findCourse(target);
+  localStorage.setItem("courseToWatch", JSON.stringify(course));
+  location.assign("../course-details/course-details.html");
+}
+
+async function handleEnroll(target) {
+  const course = await findCourse(target);
+  currentUser.courses.push(course.id);
+  localStorage.setItem("currentUser", JSON.stringify(currentUser));
+  await updateUser(currentUser.id, currentUser);
+}
+
+async function handleDisenroll(target) {
+  const course = await findCourse(target);
+  const index = currentUser.courses.findIndex((id) => id === course.id);
+  if (index !== -1) currentUser.courses.splice(index, 1);
+  localStorage.setItem("currentUser", JSON.stringify(currentUser));
+  await updateUser(currentUser.id, currentUser);
+}
+
+async function handleDelete(target) {
+  const course = await findCourse(target);
+  const confirmed = window.confirm(
+    `Are you sure you want to delete the course: ${course.course_name}?`
+  );
+  if (confirmed) {
+    await deleteCourse(course.id);
+  } else {
+    console.log("Course deletion canceled.");
   }
+}
 
-  loadCourses();
-
-  const sortCourses = async function (category, order, courseP) {
-    let data = await fetchData();
-    let courses = courseP === undefined ? data.courses : courseP;
-    courses = courses.sort((a, b) => {
-      if (order === "desc") {
-        const temp = a;
-        a = b;
-        b = temp;
-      }
-      if (a[category] < b[category]) {
-        return -1;
-      }
-      if (a[category] > b[category]) {
-        return 1;
-      }
-      return 0;
-    });
-
-    console.log(courses);
-    loadCourses(courses);
-  };
-
-  sortSelect.addEventListener("click", function (e) {
-    if (e.target.nodeName === "OPTION") {
-      if (searchInput.value.trim() === "") {
-        sortCourses(...e.target.value.split("-"));
-      } else {
-        filterCourses().then((courses) => {
-          sortCourses(...e.target.value.split("-"), courses);
-        });
-      }
-    }
-  });
-
-  const filterCourses = async function (e) {
-    let { courses } = await fetchData();
-    courses = courses.filter((course) =>
-      course.course_name.toLowerCase().includes(searchInput.value.toLowerCase())
-    );
-
-    loadCourses(courses);
-    updatePaginationControls();
-    setupPagination();
-    return courses;
-  };
-
-  const courseList = document.querySelector(".course-list");
-
-  searchInput.addEventListener("input", filterCourses);
-
-  courseList.addEventListener("click", async function (e) {
-    e.preventDefault();
-    if (
-      e.target.closest(".course-card").classList.contains("add-course-card")
-    ) {
-      localStorage.removeItem("course");
-      location.assign("../add-course/add-course.html");
-    }
-
-    if (e.target.classList.contains("course-update")) {
-      const clickedCard = e.target.closest(".course-card");
-      const clickedCourseName =
-        clickedCard.querySelector(".course-name").textContent;
-      const courseAsObject = await getCourseByCourseName(clickedCourseName);
-      console.log(JSON.stringify(courseAsObject));
-      localStorage.setItem("course", JSON.stringify(courseAsObject));
-      location.assign("../add-course/add-course.html");
-    }
-
-    if (e.target.classList.contains("course-link")) {
-      const clickedCard = e.target.closest(".course-card");
-      const clickedCourseName =
-        clickedCard.querySelector(".course-name").textContent;
-      const courseAsObject = await getCourseByCourseName(clickedCourseName);
-      console.log(JSON.stringify(courseAsObject));
-      localStorage.setItem("courseToWatch", JSON.stringify(courseAsObject));
-      location.assign("../course-details/course-details.html");
-    }
-
-    if (e.target.classList.contains("course-enroll")) {
-      const clickedCard = e.target.closest(".course-card");
-      const clickedCourseName =
-        clickedCard.querySelector(".course-name").textContent;
-      const courseAsObject = await getCourseByCourseName(clickedCourseName);
-      currentUser.courses.push(courseAsObject.id);
-      localStorage.setItem("currentUser", JSON.stringify(currentUser));
-      await updateUser(currentUser.id, currentUser);
-    }
-
-    if (e.target.classList.contains("course-disenroll")) {
-      const clickedCard = e.target.closest(".course-card");
-      const clickedCourseName =
-        clickedCard.querySelector(".course-name").textContent;
-      const courseAsObject = await getCourseByCourseName(clickedCourseName);
-      currentUser.courses.splice(
-        currentUser.courses.findIndex((elem) => elem === courseAsObject.id),
-        1
-      );
-      localStorage.setItem("currentUser", JSON.stringify(currentUser));
-      await updateUser(currentUser.id, currentUser);
-    }
-
-    if (e.target.classList.contains("course-delete")) {
-      const clickedCard = e.target.closest(".course-card");
-      const clickedCourseName =
-        clickedCard.querySelector(".course-name").textContent;
-      const courseAsObject = await getCourseByCourseName(clickedCourseName);
-
-      const confirmation = window.confirm(
-        `Are you sure you want to delete the course: ${clickedCourseName}?`
-      );
-
-      if (confirmation) {
-        console.log(courseAsObject.id);
-        deleteCourse(courseAsObject.id);
-      } else {
-        console.log("Course deletion canceled.");
-      }
-    }
-  });
+async function findCourse(elem) {
+  const clickedCard = elem.closest(".course-card");
+  const clickedCourseName =
+    clickedCard.querySelector(".course-name").textContent;
+  const courseAsObject = await getCourseByCourseName(clickedCourseName);
+  return courseAsObject;
 }

@@ -6,10 +6,9 @@
       "role": "admin",
       "email": "admin@learningplatform.com",
       "courses": [
+        "b0bb",
         "5a79",
-        "d693",
-        "f7a1",
-        "557d"
+        "d693"
       ],
       "created_at": "26/03/2024",
       "id": "e124"
@@ -19,25 +18,7 @@
       "password": "password123",
       "role": "student",
       "email": "john.doe@example.com",
-      "courses": [
-        "d693",
-        "b0bb",
-        "087a",
-        "f7a1",
-        "087a",
-        "8765",
-        "087a",
-        "2aeb",
-        "d7d5",
-        "5a79",
-        "087a",
-        "9370",
-        "087a",
-        "087a",
-        "087a",
-        "0ee4",
-        "0a47"
-      ],
+      "courses": [],
       "created_at": "15/02/2024",
       "progress": {
         "course_001": "50%",
@@ -50,10 +31,7 @@
       "password": "securePass456",
       "role": "student",
       "email": "jane.smith@example.com",
-      "courses": [
-        "b0bb",
-        "d693"
-      ],
+      "courses": [],
       "created_at": "01/03/2024",
       "progress": {
         "course_002": "80%",
@@ -67,10 +45,7 @@
       "role": "teacher",
       "email": "mary.jones@learningplatform.com",
       "created_at": "10/12/2023",
-      "assigned_courses": [
-        "b0bb",
-        null
-      ],
+      "assigned_courses": [],
       "id": "0e51"
     },
     {
@@ -79,10 +54,7 @@
       "role": "teacher",
       "email": "mark.taylor@learningplatform.com",
       "created_at": "05/01/2024",
-      "assigned_courses": [
-        "d693",
-        "d693"
-      ],
+      "assigned_courses": [],
       "id": "d19d"
     },
     {
@@ -91,14 +63,7 @@
       "password": "123456",
       "role": "teacher",
       "email": "teacher@gmail.com",
-      "assigned_courses": [
-        null,
-        null,
-        null,
-        null,
-        "d693",
-        "d693"
-      ],
+      "assigned_courses": [],
       "created_at": "4/4/2025"
     }
   ],
@@ -107,7 +72,7 @@
       "course_name": "Introduction to Programming",
       "description": "Learn the fundamentals of programming with this introductory course.",
       "course_image": "course1.png",
-      "teacher": "mary_jones",
+      "teacher": "",
       "created_at": "2025-01-10",
       "modules": [
         {
@@ -127,7 +92,7 @@
       "course_name": "Web Development Basics",
       "description": "Learn the fundamentals of developing a good-looking, modern webpage.",
       "course_image": "course2.png",
-      "teacher": "mark_taylor",
+      "teacher": "",
       "created_at": "2023-02-05",
       "modules": [
         {
@@ -147,7 +112,7 @@
       "course_name": "JavaScript for Beginners",
       "description": "Learn the fundamentals of JavaScript programming language.",
       "course_image": "course3.png",
-      "teacher": "d19d",
+      "teacher": "",
       "created_at": "2024-03-01",
       "modules": [
         {
@@ -167,7 +132,7 @@
       "course_name": "Very Advanced JavaScript",
       "description": "Deep dive into JavaScript concepts such as closures, promises, and async/await.",
       "course_image": "course4.png",
-      "teacher": "jane_doe",
+      "teacher": "",
       "created_at": "2026-03-15",
       "modules": [
         {
@@ -187,7 +152,7 @@
       "course_name": "Data Structures and Algorithms",
       "description": "Learn fundamental data structures and algorithms.",
       "course_image": "course6.png",
-      "teacher": "john_smith",
+      "teacher": "",
       "created_at": "2025-04-15",
       "modules": [
         {
@@ -204,30 +169,10 @@
       "id": "f7a1"
     },
     {
-      "course_name": "Machine Learning Basics",
-      "description": "Introduction to machine learning concepts and techniques.alalalala",
-      "course_image": "course7.png",
-      "teacher": "alice_watson",
-      "created_at": "2022-05-01",
-      "modules": [
-        {
-          "module_id": "module_013",
-          "title": "Supervised Learning",
-          "content": "Introduction to regression and classification models."
-        },
-        {
-          "module_id": "module_014",
-          "title": "Unsupervised Learning",
-          "content": "Clustering and dimensionality reduction techniques."
-        }
-      ],
-      "id": "0ee4"
-    },
-    {
       "course_name": "React.js Fundamentals",
       "description": "Learn the basics of React.js for modern frontend development.",
       "course_image": "course8.png",
-      "teacher": "mark_taylor",
+      "teacher": "",
       "created_at": "2024-05-15",
       "modules": [
         {
@@ -247,7 +192,7 @@
       "course_name": "Node.js for Beginners",
       "description": "Learn how to build backend applications using Node.js.",
       "course_image": "course9.png",
-      "teacher": "jane_doe",
+      "teacher": "",
       "created_at": "2020-06-01",
       "modules": [
         {
@@ -264,15 +209,6 @@
       "id": "6cb1"
     },
     {
-      "course_name": "Yoooooo",
-      "description": "Nagyon yooooooooooo",
-      "course_image": "pfej",
-      "teacher": "",
-      "created_at": "4/1/2025",
-      "modules": [],
-      "id": "0a47"
-    },
-    {
       "course_name": "Database Management 3",
       "description": "Modified database",
       "course_image": "pfffff",
@@ -286,7 +222,7 @@
       "course_name": "C++ Programming",
       "description": "Learn C++ programming language from the ground up.",
       "course_image": "course12.png",
-      "teacher": "john_smith",
+      "teacher": "",
       "created_at": "2024-07-15",
       "modules": [
         {
@@ -306,7 +242,7 @@
       "course_name": "Artificial Intelligence Basics",
       "description": "Learn about artificial intelligence and neural networks.",
       "course_image": "course13.png",
-      "teacher": "alice_watson",
+      "teacher": "",
       "created_at": "2022-08-01",
       "modules": [
         {
@@ -326,7 +262,7 @@
       "course_name": "Django Web Development",
       "description": "Learn how to develop web applications using Django.",
       "course_image": "course14.png",
-      "teacher": "susan_miller",
+      "teacher": "",
       "created_at": "2023-08-15",
       "modules": [
         {
@@ -356,6 +292,14 @@
       "course_name": "Hulululu",
       "description": "alalalal",
       "teacher": "New",
+      "created_at": "4/4/2025",
+      "modules": []
+    },
+    {
+      "id": "a533",
+      "course_name": "Elelele course",
+      "description": "ewerfw",
+      "teacher": "New Teachermark_taylormary_jones",
       "created_at": "4/4/2025",
       "modules": []
     }

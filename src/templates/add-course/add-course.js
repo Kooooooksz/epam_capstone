@@ -43,7 +43,7 @@ if (localStorage.getItem("course")) {
 }
 
 const courseForm = document.querySelector("form");
-console.log(JSON.parse(localStorage.getItem("course")).id);
+console.log(localStorage.getItem("course")?.id);
 
 courseForm.addEventListener("submit", async function (e) {
   e.preventDefault();
@@ -61,11 +61,14 @@ courseForm.addEventListener("submit", async function (e) {
     console.log(updateTo);
     updateTo.course_name = inputName.value;
     updateTo.description = inputDescription.value;
-    updateTo.teacher = teacherSelect.value;
+    updateTo.teacher = !teachers.some(
+      (teacher) => teacher.assigned_course === teacherSelect.textContent
+    )
+      ? teacherSelect.textContent
+      : JSON.parse(localStorage.getItem("course")).teacher;
 
-    console.log(localStorage.getItem("course").id);
     teacher.assigned_courses.push(
-      JSON.parse(localStorage.getItem("course")).id
+      JSON.parse(localStorage.getItem("course")).course_name
     );
     console.log(teacher.assigned_courses);
     patchUserAssignedCourses(teacher.id, teacher.assigned_courses);
@@ -74,8 +77,9 @@ courseForm.addEventListener("submit", async function (e) {
     const newCourse = new Course(
       inputName.value,
       inputDescription.value,
-      teacherSelect.value
+      teacherSelect.textContent
     );
+    teacher.assigned_courses.push(newCourse.course_name);
     await addCourse(newCourse);
   }
   location.assign("../home/home.html");
