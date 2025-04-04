@@ -1,13 +1,20 @@
 const BASE_URL = "http://localhost:3000/courses";
 
 export class Course {
+  static idValue;
   constructor(name, description, teacher) {
+    this.id = Course.idValue++;
     this.course_name = name;
     this.description = description;
     this.teacher = teacher;
     this.created_at = Intl.DateTimeFormat("en-EN").format(new Date());
     this.modules = [];
   }
+}
+
+export async function initializeCourseId() {
+  const courses = await getCourses();
+  Course.idValue = courses.length + 1;
 }
 
 export async function getCourses() {

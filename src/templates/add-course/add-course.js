@@ -3,6 +3,7 @@ import {
   addCourse,
   Course,
   updateCourse,
+  initializeCourseId,
 } from "../../CourseOperations.js";
 
 import { getUsers, patchUserAssignedCourses } from "../../UserOperations.js";
@@ -10,6 +11,8 @@ import { getUsers, patchUserAssignedCourses } from "../../UserOperations.js";
 const inputName = document.querySelector("#course-name");
 const inputDescription = document.querySelector("#course-description");
 const teacherSelect = document.querySelector("#teacher");
+
+await initializeCourseId();
 
 async function getAllTeachers() {
   const allUserrs = await getUsers();

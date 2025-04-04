@@ -152,27 +152,26 @@ function updatePaginationControls() {
 
 loadCourses();
 
-const sortCourses = async function (category, order, courseP) {
-  let data = await fetchData();
-  let courses = courseP === undefined ? data.courses : courseP;
-  courses = courses.sort((a, b) => {
-    if (order === "desc") {
-      const temp = a;
-      a = b;
-      b = temp;
-    }
-    if (a[category] < b[category]) {
-      return -1;
-    }
-    if (a[category] > b[category]) {
-      return 1;
-    }
-    return 0;
-  });
+const sortCourses = async (category, order = "asc", courseP) => {
+  const data = await fetchData();
+  const courses = [...(courseP ?? data.courses)];
 
-  console.log(courses);
-  loadCourses(courses);
+  const sortedCourses = courses.sort((a, b) =>
+    compareValues(a, b, category, order)
+  );
+
+  console.log(sortedCourses);
+  loadCourses(sortedCourses);
 };
+
+function compareValues(a, b, category, order) {
+  const valA = a[category];
+  const valB = b[category];
+
+  if (valA < valB) return order === "asc" ? -1 : 1;
+  if (valA > valB) return order === "asc" ? 1 : -1;
+  return 0;
+}
 
 sortSelect.addEventListener("click", function (e) {
   if (e.target.nodeName === "OPTION") {

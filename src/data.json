@@ -86,7 +86,7 @@
           "content": "Understanding conditionals and loops."
         }
       ],
-      "id": "5a79"
+      "id": 1
     },
     {
       "course_name": "Web Development Basics",
@@ -106,7 +106,7 @@
           "content": "Learn the basics of styling webpages with CSS."
         }
       ],
-      "id": "b0bb"
+      "id": 2
     },
     {
       "course_name": "JavaScript for Beginners",
@@ -126,7 +126,7 @@
           "content": "Interacting with the DOM using JavaScript."
         }
       ],
-      "id": "d693"
+      "id": 3
     },
     {
       "course_name": "Very Advanced JavaScript",
@@ -146,7 +146,7 @@
           "content": "Promises, async/await, and event loop."
         }
       ],
-      "id": "8765"
+      "id": 4
     },
     {
       "course_name": "Data Structures and Algorithms",
@@ -166,7 +166,7 @@
           "content": "QuickSort, MergeSort, and BubbleSort explained."
         }
       ],
-      "id": "f7a1"
+      "id": 5
     },
     {
       "course_name": "React.js Fundamentals",
@@ -186,7 +186,7 @@
           "content": "Managing component state and props in React."
         }
       ],
-      "id": "c2c8"
+      "id": 6
     },
     {
       "course_name": "Node.js for Beginners",
@@ -206,7 +206,7 @@
           "content": "Creating a RESTful API using Express.js."
         }
       ],
-      "id": "6cb1"
+      "id": 7
     },
     {
       "course_name": "Database Management 3",
@@ -215,7 +215,7 @@
       "teacher": "",
       "created_at": "4/2/2025",
       "modules": [],
-      "id": "d7d5"
+      "id": 8
     },
     {
       "course_id": "course_012",
@@ -236,7 +236,7 @@
           "content": "Introduction to object-oriented programming in C++."
         }
       ],
-      "id": "557d"
+      "id": 9
     },
     {
       "course_name": "Artificial Intelligence Basics",
@@ -256,7 +256,7 @@
           "content": "Basics of deep learning and neural networks."
         }
       ],
-      "id": "3dfc"
+      "id": 10
     },
     {
       "course_name": "Django Web Development",
@@ -276,10 +276,10 @@
           "content": "Using Django templates and views to build dynamic web pages."
         }
       ],
-      "id": "9370"
+      "id": 11
     },
     {
-      "id": "2aeb",
+      "id": 12,
       "course_name": "Very newch",
       "description": "Verrry new",
       "course_image": "pfffff",
@@ -288,7 +288,7 @@
       "modules": []
     },
     {
-      "id": "6d51",
+      "id": 13,
       "course_name": "Hulululu",
       "description": "alalalal",
       "teacher": "New",
@@ -296,9 +296,25 @@
       "modules": []
     },
     {
-      "id": "a533",
+      "id": 14,
       "course_name": "Elelele course",
       "description": "ewerfw",
+      "teacher": "New Teachermark_taylormary_jones",
+      "created_at": "4/4/2025",
+      "modules": []
+    },
+    {
+      "id": 15,
+      "course_name": "Newtotry",
+      "description": "tryyyy",
+      "teacher": "New Teachermark_taylormary_jones",
+      "created_at": "4/4/2025",
+      "modules": []
+    },
+    {
+      "id": 16,
+      "course_name": "hulala",
+      "description": "wowwww",
       "teacher": "New Teachermark_taylormary_jones",
       "created_at": "4/4/2025",
       "modules": []
