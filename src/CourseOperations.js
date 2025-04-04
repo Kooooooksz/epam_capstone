@@ -1,11 +1,10 @@
 const BASE_URL = "http://localhost:3000/courses";
 
 export class Course {
-  constructor(name, description, course_image) {
+  constructor(name, description, teacher) {
     this.course_name = name;
     this.description = description;
-    this.course_image = course_image;
-    this.teacher = "";
+    this.teacher = teacher;
     this.created_at = Intl.DateTimeFormat("en-EN").format(new Date());
     this.modules = [];
   }

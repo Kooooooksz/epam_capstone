@@ -1,3 +1,4 @@
+import { getCourses } from "../../CourseOperations.js";
 import { fetchData, navMenuClick, checkUserSignedIn } from "../common.js";
 
 const header = document.querySelector("header");
@@ -8,16 +9,10 @@ const currentUser = JSON.parse(localStorage.getItem("currentUser")) || null;
 const courseList = document.querySelector("#course-list");
 let data = null;
 let courses;
-fetchData().then((fetchedData) => {
-  if (!fetchedData || !fetchedData.courses) {
-    console.error("There are no courses loaded!");
-    return;
-  }
-
-  data = fetchedData;
-  courses = data.courses;
+async function getMyCourses() {
+  courses = await getCourses();
   const coursesByUser = courses.filter((course) =>
-    currentUser.courses.includes(course.course_id)
+    currentUser.courses.includes(course.id)
   );
 
   coursesByUser.forEach((course) => {
@@ -27,6 +22,8 @@ fetchData().then((fetchedData) => {
         </div>`;
     courseList.insertAdjacentHTML("beforeend", courseEl);
   });
-});
+}
+
+await getMyCourses();
 
 console.log(currentUser.courses);

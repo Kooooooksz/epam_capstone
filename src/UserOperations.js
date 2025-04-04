@@ -1,12 +1,12 @@
 const BASE_URL = "http://localhost:3000/users";
 
 export class User {
-  constructor(name, password, email) {
+  constructor(name, password, role, email) {
     this.name = name;
     this.password = password;
-    this.role = "student";
+    this.role = role;
     this.email = email;
-    this.courses = [];
+    role === "student" ? (this.courses = []) : (this.aassigned_courses = []);
     this.created_at = Intl.DateTimeFormat("en-EN").format(new Date());
   }
 }
@@ -34,4 +34,18 @@ export async function updateUser(id, user) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(user),
   });
+
+  const updatedUser = await response.json();
+  console.log("User updated:", updatedUser);
+}
+
+export async function patchUserAssignedCourses(id, newCourses) {
+  const response = await fetch(`${BASE_URL}/${id}`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ assigned_courses: newCourses }),
+  });
+
+  const updatedUser = await response.json();
+  console.log("User patched:", updatedUser);
 }

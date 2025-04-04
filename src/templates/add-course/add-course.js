@@ -5,8 +5,29 @@ import {
   updateCourse,
 } from "../../CourseOperations.js";
 
+import { getUsers, patchUserAssignedCourses } from "../../UserOperations.js";
+
 const inputName = document.querySelector("#course-name");
 const inputDescription = document.querySelector("#course-description");
+const teacherSelect = document.querySelector("#teacher");
+
+async function getAllTeachers() {
+  const allUserrs = await getUsers();
+  const allTeachers = allUserrs.filter((user) => user.role === "teacher");
+  return allTeachers;
+}
+
+const teachers = await getAllTeachers();
+
+teachers.forEach((teacher) => {
+  const optionEl = `<option value=${teacher.id
+    .toLowerCase()
+    .split(" ")
+    .join("_")}>${teacher.name}</option>`;
+  teacherSelect.insertAdjacentHTML("afterbegin", optionEl);
+});
+
+console.log(teacherSelect);
 //const inputImg = document.querySelector("#img");
 const h2 = document.querySelector("h2");
 if (localStorage.getItem("course")) {
@@ -22,44 +43,49 @@ if (localStorage.getItem("course")) {
 }
 
 const courseForm = document.querySelector("form");
-if (window.location.toString().split("/").at(-1) === "add-course.html") {
-  courseForm.addEventListener("submit", async function (e) {
-    e.preventDefault();
-    //const file = inputImg.files[0];
-    let imageUrl = "pfffff";
-    /*if (file) {
+console.log(JSON.parse(localStorage.getItem("course")).id);
+
+courseForm.addEventListener("submit", async function (e) {
+  e.preventDefault();
+  console.log(teacherSelect.value);
+  //const file = inputImg.files[0];
+  let imageUrl = "pfffff";
+  /*if (file) {
       imageUrl = await convertImageToBase64(file);
     }*/
 
-    if (localStorage.getItem("course")) {
-      console.log(updateTo);
-      updateTo.course_name = inputName.value;
-      updateTo.description = inputDescription.value;
-      console.log(localStorage.getItem("course").id);
-      await updateCourse(updateTo.id, updateTo);
-    } else {
-      const newCourse = new Course(
-        inputName.value,
-        inputDescription.value,
-        imageUrl
-      );
-      await addCourse(newCourse);
-    }
-    location.assign("../home/home.html");
-  });
+  const teacher = teachers.find((user) => user.id === teacherSelect.value);
+  console.log(teacher);
 
-  async function convertImageToBase64(file) {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => resolve(reader.result);
-      reader.onerror = (error) => reject(error);
-    });
+  if (localStorage.getItem("course")) {
+    console.log(updateTo);
+    updateTo.course_name = inputName.value;
+    updateTo.description = inputDescription.value;
+    updateTo.teacher = teacherSelect.value;
+
+    console.log(localStorage.getItem("course").id);
+    teacher.assigned_courses.push(
+      JSON.parse(localStorage.getItem("course")).id
+    );
+    console.log(teacher.assigned_courses);
+    patchUserAssignedCourses(teacher.id, teacher.assigned_courses);
+    await updateCourse(updateTo.id, updateTo);
+  } else {
+    const newCourse = new Course(
+      inputName.value,
+      inputDescription.value,
+      teacherSelect.value
+    );
+    await addCourse(newCourse);
   }
-}
+  //location.assign("../home/home.html");
+});
 
-export function kurvaAnyad(num) {
-  courseForm.addEventListener("submit", async function (e) {
-    console.log(num);
+async function convertImageToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = (error) => reject(error);
   });
 }

@@ -66,12 +66,10 @@
       "password": "jonesPass789",
       "role": "teacher",
       "email": "mary.jones@learningplatform.com",
-      "courses": [
-        "b0bb"
-      ],
       "created_at": "10/12/2023",
       "assigned_courses": [
-        "b0bb"
+        "b0bb",
+        null
       ],
       "id": "0e51"
     },
@@ -80,14 +78,26 @@
       "password": "markPass123",
       "role": "teacher",
       "email": "mark.taylor@learningplatform.com",
-      "courses": [
-        "d693"
-      ],
       "created_at": "05/01/2024",
       "assigned_courses": [
         "d693"
       ],
       "id": "d19d"
+    },
+    {
+      "id": "d9c5",
+      "name": "New Teacher",
+      "password": "123456",
+      "role": "teacher",
+      "email": "teacher@gmail.com",
+      "assigned_courses": [
+        null,
+        null,
+        null,
+        null,
+        "d693"
+      ],
+      "created_at": "4/4/2025"
     }
   ],
   "courses": [
@@ -135,7 +145,7 @@
       "course_name": "JavaScript for Beginners",
       "description": "Learn the fundamentals of JavaScript programming language.",
       "course_image": "course3.png",
-      "teacher": "mark_taylor",
+      "teacher": "d9c5",
       "created_at": "2024-03-01",
       "modules": [
         {
@@ -337,6 +347,14 @@
       "course_image": "pfffff",
       "teacher": "",
       "created_at": "4/2/2025",
+      "modules": []
+    },
+    {
+      "id": "6d51",
+      "course_name": "Hulululu",
+      "description": "alalalal",
+      "teacher": "New",
+      "created_at": "4/4/2025",
       "modules": []
     }
   ]
