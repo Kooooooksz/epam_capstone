@@ -7,9 +7,9 @@
       "email": "admin@learningplatform.com",
       "courses": [
         "5a79",
-        "b0bb",
         "d693",
-        "f7a1"
+        "f7a1",
+        "557d"
       ],
       "created_at": "26/03/2024",
       "id": "e124"
@@ -80,6 +80,7 @@
       "email": "mark.taylor@learningplatform.com",
       "created_at": "05/01/2024",
       "assigned_courses": [
+        "d693",
         "d693"
       ],
       "id": "d19d"
@@ -95,6 +96,7 @@
         null,
         null,
         null,
+        "d693",
         "d693"
       ],
       "created_at": "4/4/2025"
@@ -145,7 +147,7 @@
       "course_name": "JavaScript for Beginners",
       "description": "Learn the fundamentals of JavaScript programming language.",
       "course_image": "course3.png",
-      "teacher": "d9c5",
+      "teacher": "d19d",
       "created_at": "2024-03-01",
       "modules": [
         {

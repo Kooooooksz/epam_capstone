@@ -11,6 +11,7 @@ header {
     max-width: 1200px;
     margin: auto;
     padding: 0 20px;
+    flex-wrap: wrap;
 
     .logo h1 {
       color: v.$white;
@@ -69,6 +70,28 @@ header {
             display: block;
           }
         }
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 0 10px;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: center;
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+
+        li {
+          margin: 10px 0;
+        }
+      }
+
+      .logo h1 {
+        font-size: 20px;
       }
     }
   }

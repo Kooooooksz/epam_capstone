@@ -19,7 +19,7 @@ export const checkUserSignedIn = (header) => {
 
 export const insertNavMenu = function (header) {
   console.log();
-  const navMenu = ` <nav>
+  const navMenu = `   <nav>
     <div class="logo">
         <h1>LearnHub</h1>
     </div>
@@ -29,7 +29,9 @@ export const insertNavMenu = function (header) {
         <li><a class="contacts" href="#">Contacts</a></li>
         <li class="user-menu">
             <a href="#">${
-              JSON.parse(localStorage.getItem("currentUser")).name
+              localStorage.getItem("currentUser")
+                ? JSON.parse(localStorage.getItem("currentUser")).name
+                : "Guest"
             }</a>
             <ul class="submenu">
                 <li><a href="#">Profile</a></li>
@@ -38,7 +40,7 @@ export const insertNavMenu = function (header) {
             </ul>
         </li>
     </ul>
-</nav>
+  </nav>
 `;
   header.insertAdjacentHTML("beforeend", navMenu);
 };

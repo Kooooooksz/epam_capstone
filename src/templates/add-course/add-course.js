@@ -78,7 +78,7 @@ courseForm.addEventListener("submit", async function (e) {
     );
     await addCourse(newCourse);
   }
-  //location.assign("../home/home.html");
+  location.assign("../home/home.html");
 });
 
 async function convertImageToBase64(file) {

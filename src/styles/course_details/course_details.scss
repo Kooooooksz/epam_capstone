@@ -14,6 +14,14 @@ body {
 .container {
   width: 60%;
   @include m.flex-center;
+
+  @media (max-width: 1024px) {
+    width: 80%;
+  }
+
+  @media (max-width: 768px) {
+    width: 90%;
+  }
 }
 
 .course-card {
@@ -32,6 +40,7 @@ body {
 
   h1 {
     color: v.$primary-color;
+    font-size: 24px; // Slightly smaller heading on mobile
   }
 
   p {
@@ -51,8 +60,49 @@ body {
       border-radius: 5px;
     }
   }
+
   .back-home-btn {
     @include m.button-styles;
     margin-top: 15px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 15px;
+
+    h1 {
+      font-size: 20px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+
+    ul {
+      padding: 0;
+
+      li {
+        padding: 8px;
+      }
+    }
+
+    .back-home-btn {
+      font-size: 14px;
+      padding: 10px 20px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 18px;
+    }
+
+    p {
+      font-size: 12px;
+    }
+
+    .back-home-btn {
+      font-size: 12px;
+      padding: 8px 15px;
+    }
   }
 }
