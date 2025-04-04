@@ -1,5 +1,5 @@
-@use "variables" as v;
-@use "mixins" as m;
+@use "../common/variables" as v;
+@use "../common/mixins" as m;
 
 body {
   background-color: v.$background-color;

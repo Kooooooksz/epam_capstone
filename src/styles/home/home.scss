@@ -1,6 +1,6 @@
-@use "variables" as v;
-@use "mixins" as m;
-@use "nav";
+@use "../common/variables" as v;
+@use "../common/mixins" as m;
+@use "../common/nav";
 
 $primary-color: #007bff;
 $secondary-color: #0056b3;
