@@ -9,10 +9,10 @@ import { updateUser } from "../../UserOperations.js";
 const courseListEl = document.querySelector(".course-list");
 const sortSelect = document.querySelector(".sort-select");
 const searchInput = document.querySelector(".search-input");
-searchInput.value = "";
+const ctaBtn = document.querySelector(".cta-btn");
 const header = document.querySelector("header");
-const courseList = document.querySelector(".course-list");
 
+searchInput.value = "";
 checkUserSignedIn(header);
 navMenuClick(header);
 
@@ -109,7 +109,7 @@ function createAddCourseCard() {
 }
 
 function highlightSearchMatches() {
-  [...courseList.children].forEach((card) => {
+  [...courseListEl.children].forEach((card) => {
     if (card.classList.contains("course-card")) {
       const courseNameEl = card.querySelector(".course-name");
       const regex = new RegExp(searchInput.value, "gi");
@@ -152,6 +152,18 @@ function updatePaginationControls() {
 
 loadCourses();
 
+ctaBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  const clcoords = courseListEl.getBoundingClientRect();
+  console.log(clcoords);
+
+  window.scrollTo({
+    left: clcoords.left + window.pageXOffset,
+    top: clcoords.top + window.pageYOffset,
+    behavior: "smooth",
+  });
+});
+
 const sortCourses = async (category, order = "asc", courseP) => {
   const data = await fetchData();
   const courses = [...(courseP ?? data.courses)];
@@ -167,6 +179,8 @@ const sortCourses = async (category, order = "asc", courseP) => {
 function compareValues(a, b, category, order) {
   const valA = a[category];
   const valB = b[category];
+
+  console.log(valA, valB);
 
   if (valA < valB) return order === "asc" ? -1 : 1;
   if (valA > valB) return order === "asc" ? 1 : -1;
@@ -199,7 +213,7 @@ const filterCourses = async function (e) {
 
 searchInput.addEventListener("input", filterCourses);
 
-courseList.addEventListener("click", async function (e) {
+courseListEl.addEventListener("click", async function (e) {
   e.preventDefault();
   const target = e.target;
 

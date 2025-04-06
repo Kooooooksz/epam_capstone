@@ -292,6 +292,41 @@ footer {
   background-color: yellow;
 }
 
+.about-courses {
+  background-color: #f3f4f6;
+  padding: 60px 20px;
+}
+
+.course-info-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.course-info {
+  background: #fff;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.course-info:hover {
+  transform: translateY(-5px);
+}
+
+.course-info h3 {
+  margin-bottom: 15px;
+  color: #1f2937;
+  font-size: 1.2rem;
+}
+
+.course-info p {
+  color: #4b5563;
+  line-height: 1.6;
+}
+
 @media (max-width: 1024px) {
   .nav-container {
     flex-direction: column;

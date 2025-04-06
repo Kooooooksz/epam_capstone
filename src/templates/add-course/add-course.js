@@ -41,6 +41,7 @@ if (localStorage.getItem("course")) {
 let updateTo;
 if (localStorage.getItem("course")) {
   updateTo = JSON.parse(localStorage.getItem("course"));
+  console.log(updateTo);
   inputName.value = updateTo.course_name;
   inputDescription.value = updateTo.description;
 }
@@ -50,41 +51,47 @@ console.log(localStorage.getItem("course")?.id);
 
 courseForm.addEventListener("submit", async function (e) {
   e.preventDefault();
-  console.log(teacherSelect.value);
-  //const file = inputImg.files[0];
+
+  const courseName = inputName.value.trim();
+  const courseDescription = inputDescription.value.trim();
+  const selectedTeacherId = teacherSelect.value;
+  const selectedTeacherName =
+    teacherSelect.options[teacherSelect.selectedIndex].textContent;
+
+  const teacher = teachers.find((user) => user.id === selectedTeacherId);
+  if (!teacher) {
+    console.error("Teacher not found!");
+    return;
+  }
+
   let imageUrl = "pfffff";
-  /*if (file) {
-      imageUrl = await convertImageToBase64(file);
-    }*/
 
-  const teacher = teachers.find((user) => user.id === teacherSelect.value);
-  console.log(teacher);
+  const isUpdate = !!localStorage.getItem("course");
 
-  if (localStorage.getItem("course")) {
-    console.log(updateTo);
-    updateTo.course_name = inputName.value;
-    updateTo.description = inputDescription.value;
-    updateTo.teacher = !teachers.some(
-      (teacher) => teacher.assigned_course === teacherSelect.textContent
-    )
-      ? teacherSelect.textContent
-      : JSON.parse(localStorage.getItem("course")).teacher;
+  if (isUpdate) {
+    const originalCourse = JSON.parse(localStorage.getItem("course"));
+    updateTo.course_name = courseName;
+    updateTo.description = courseDescription;
+    updateTo.teacher = selectedTeacherName;
+    if (!teacher.assigned_courses.includes(originalCourse.course_name)) {
+      teacher.assigned_courses.push(originalCourse.course_name);
+    }
 
-    teacher.assigned_courses.push(
-      JSON.parse(localStorage.getItem("course")).course_name
-    );
-    console.log(teacher.assigned_courses);
-    patchUserAssignedCourses(teacher.id, teacher.assigned_courses);
+    await patchUserAssignedCourses(teacher.id, teacher.assigned_courses);
+    console.log(updateTo.id);
     await updateCourse(updateTo.id, updateTo);
   } else {
     const newCourse = new Course(
-      inputName.value,
-      inputDescription.value,
-      teacherSelect.textContent
+      courseName,
+      courseDescription,
+      selectedTeacherName
     );
     teacher.assigned_courses.push(newCourse.course_name);
+
     await addCourse(newCourse);
+    await patchUserAssignedCourses(teacher.id, teacher.assigned_courses);
   }
+
   location.assign("../home/home.html");
 });
 
