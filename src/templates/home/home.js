@@ -11,6 +11,7 @@ const sortSelect = document.querySelector(".sort-select");
 const searchInput = document.querySelector(".search-input");
 const ctaBtn = document.querySelector(".cta-btn");
 const header = document.querySelector("header");
+const filterSelect = document.querySelector(".search-category");
 
 searchInput.value = "";
 checkUserSignedIn(header);
@@ -68,12 +69,17 @@ function createCourseCard(course) {
   const isAdmin = currentUser.role === "admin";
 
   courseElem.innerHTML = `
-    <h3 class="course-name">${course.course_name}</h3>
-    <p>${course.description}</p>
+    <h3 class="course_name">${course.course_name}</h3>
+    <p class="description">${course.description}</p>
     <img src="../../assets/course_images/${
       course.course_image
     }" height="300" width="300">
-    <p>This course was created at: ${course.created_at}</p>
+    <p>This course was created at:<span class="created_at"> ${
+      course.created_at
+    }</span></p>
+    <p>Teacher of this course:<span class="teacher"> ${
+      course.teacher
+    }</span></p>
     <span>
       ${isEnrolled ? `<a class="course-link" href="#">View Course</a>` : ""}
       ${
@@ -106,19 +112,6 @@ function createAddCourseCard() {
     </div>
   `;
   return addCourseCard;
-}
-
-function highlightSearchMatches() {
-  [...courseListEl.children].forEach((card) => {
-    if (card.classList.contains("course-card")) {
-      const courseNameEl = card.querySelector(".course-name");
-      const regex = new RegExp(searchInput.value, "gi");
-      courseNameEl.innerHTML = courseNameEl.textContent.replace(
-        regex,
-        (match) => `<span class="highlight">${match}</span>`
-      );
-    }
-  });
 }
 
 function setupPagination() {
@@ -202,7 +195,9 @@ sortSelect.addEventListener("click", function (e) {
 const filterCourses = async function (e) {
   let { courses } = await fetchData();
   courses = courses.filter((course) =>
-    course.course_name.toLowerCase().includes(searchInput.value.toLowerCase())
+    course[filterSelect.value]
+      .toLowerCase()
+      .includes(searchInput.value.toLowerCase())
   );
 
   loadCourses(courses);
@@ -210,6 +205,19 @@ const filterCourses = async function (e) {
   setupPagination();
   return courses;
 };
+
+function highlightSearchMatches() {
+  [...courseListEl.children].forEach((card) => {
+    if (card.classList.contains("course-card")) {
+      const courseNameEl = card.querySelector(`.${filterSelect.value}`);
+      const regex = new RegExp(searchInput.value, "gi");
+      courseNameEl.innerHTML = courseNameEl.textContent.replace(
+        regex,
+        (match) => `<span class="highlight">${match}</span>`
+      );
+    }
+  });
+}
 
 searchInput.addEventListener("input", filterCourses);
 
@@ -286,7 +294,7 @@ async function handleDelete(target) {
 async function findCourse(elem) {
   const clickedCard = elem.closest(".course-card");
   const clickedCourseName =
-    clickedCard.querySelector(".course-name").textContent;
+    clickedCard.querySelector(".course_name").textContent;
   const courseAsObject = await getCourseByCourseName(clickedCourseName);
   return courseAsObject;
 }
