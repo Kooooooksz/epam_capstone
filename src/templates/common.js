@@ -61,7 +61,7 @@ const insertNavMenu = function (header) {
     if (e.target.classList.contains("logout")) {
       e.preventDefault();
       localStorage.removeItem("currentUser");
-      location.assign("../login/login.html");
+      location.assign("../index.html");
     }
   });
 };

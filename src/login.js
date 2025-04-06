@@ -26,7 +26,7 @@ loginForm.addEventListener("submit", async function (e) {
   if (user.password === loginPassword.value) {
     console.log("Login was successful!");
     localStorage.setItem("currentUser", JSON.stringify(user));
-    location.assign("../home/home.html");
+    location.assign("templates/home/home.html");
     console.log(window.location);
   } else {
     console.log("Incorrect password!");
