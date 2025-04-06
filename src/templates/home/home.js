@@ -1,4 +1,4 @@
-import { fetchData, navMenuClick, checkUserSignedIn } from "../common.js";
+import { fetchData, checkUserSignedIn } from "../common.js";
 import {
   getCourses,
   getCourseByCourseName,
@@ -15,7 +15,6 @@ const filterSelect = document.querySelector(".search-category");
 
 searchInput.value = "";
 checkUserSignedIn(header);
-navMenuClick(header);
 
 let courses = [];
 let currentPage = 1;

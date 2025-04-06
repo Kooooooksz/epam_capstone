@@ -1,8 +1,7 @@
-import { checkUserSignedIn, navMenuClick } from "../common.js";
+import { checkUserSignedIn } from "../common.js";
 
 const header = document.querySelector("header");
 checkUserSignedIn(header);
-navMenuClick(header);
 
 const sliderEl = document.querySelector(".slider");
 const prevBtn = document.querySelector("#prev");
@@ -38,9 +37,9 @@ const activateDot = function (slide) {
 };
 
 const goToSlide = function (slide) {
-  const slideWidth = sliderEl.offsetWidth; // Get the width of the slider container
+  const slideWidth = sliderEl.offsetWidth;
   [...sliderEl.children].forEach((s, i) => {
-    s.style.transform = `translateX(${slideWidth * (i - slide)}px)`; // Use the actual width for translation
+    s.style.transform = `translateX(${slideWidth * (i - slide)}px)`;
   });
   sliderEl.style.transform = `translateX(-${slide * 100}%)`;
 };
@@ -78,7 +77,7 @@ prevBtn.addEventListener("click", prevSlide);
 nextBtn.addEventListener("click", nextSlide);
 
 document.addEventListener("keydown", function (e) {
-  if (e.key === "ArrowLeft") prevSlide();
+  e.key === "ArrowLeft" && prevSlide();
   e.key === "ArrowRight" && nextSlide();
 });
 

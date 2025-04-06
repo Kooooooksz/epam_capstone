@@ -1,5 +1,4 @@
-import { navMenuClick, checkUserSignedIn } from "../common.js";
+import { checkUserSignedIn } from "../common.js";
 
 const header = document.querySelector("header");
 checkUserSignedIn(header);
-navMenuClick(header);

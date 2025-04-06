@@ -1,9 +1,8 @@
 import { getCourses } from "../../CourseOperations.js";
-import { fetchData, navMenuClick, checkUserSignedIn } from "../common.js";
+import { checkUserSignedIn } from "../common.js";
 
 const header = document.querySelector("header");
 checkUserSignedIn(header);
-navMenuClick(header);
 
 const currentUser = JSON.parse(localStorage.getItem("currentUser")) || null;
 const courseList = document.querySelector("#course-list");

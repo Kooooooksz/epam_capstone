@@ -3,6 +3,7 @@
 header {
   background: v.$primary-color;
   padding: 15px 0;
+  width: 100%;
 
   nav {
     display: flex;
@@ -12,6 +13,7 @@ header {
     margin: auto;
     padding: 0 20px;
     flex-wrap: wrap;
+    width: 100%;
 
     .logo h1 {
       color: v.$white;
@@ -30,6 +32,12 @@ header {
           text-decoration: none;
           font-size: 16px;
           transition: color 0.3s;
+
+          &.active {
+            font-weight: bold;
+            color: v.$text-color;
+            border-bottom: 2px solid v.$text-color;
+          }
 
           &:hover {
             color: v.$background-color;
@@ -74,9 +82,7 @@ header {
     }
 
     @media (max-width: 768px) {
-      nav {
-        padding: 0 10px;
-      }
+      padding: 0 10px;
 
       .nav-links {
         width: 100%;

@@ -17,54 +17,43 @@ export const checkUserSignedIn = (header) => {
   }
 };
 
-export const insertNavMenu = function (header) {
-  console.log();
-  const navMenu = `   <nav>
+const insertNavMenu = function (header) {
+  const currentPath = window.location.pathname;
+
+  const isActive = (path) => (currentPath.includes(path) ? "active" : "");
+
+  const navMenu = `   
+  <nav>
     <div class="logo">
         <h1>LearnHub</h1>
     </div>
     <ul class="nav-links">
-        <li><a class="home" href="#">Home</a></li>
-        <li><a class="my_courses" href="#">My Courses</a></li>
-        <li><a class="contacts" href="#">Contacts</a></li>
+    <li><a class="slider_page ${isActive(
+      "slider_page"
+    )}" href="../slider_page/slider_page.html">Introduction</a></li>
+        <li><a class="home ${isActive(
+          "home"
+        )}" href="../home/home.html">Home</a></li>
+        <li><a class="my_courses ${isActive(
+          "my-courses"
+        )}" href="../my-courses/my-courses.html">My Courses</a></li>
+        <li><a class="contacts ${isActive(
+          "contacts"
+        )}" href="../contacts/contacts.html">Contacts</a></li>
         <li class="user-menu">
             <a href="#">${
               localStorage.getItem("currentUser")
                 ? JSON.parse(localStorage.getItem("currentUser")).name
-                : "Guest"
+                : ""
             }</a>
             <ul class="submenu">
                 <li><a href="#">Profile</a></li>
-                <li><a href="#">Settings</a></li>
                 <li><a class="logout" href="#">Logout</a></li>
             </ul>
         </li>
     </ul>
   </nav>
 `;
-  header.insertAdjacentHTML("beforeend", navMenu);
-};
 
-export const navMenuClick = function (header) {
-  header.addEventListener("click", function (e) {
-    e.preventDefault();
-    if (e.target.classList.contains("logout")) {
-      localStorage.removeItem("currentUser");
-      console.log("User logged out.");
-      console.log(
-        "Current user after logout:",
-        localStorage.getItem("currentUser")
-      );
-      location.assign("../login/login.html");
-    }
-    if (e.target.classList.contains("my_courses")) {
-      location.assign("../my-courses/my-courses.html");
-    }
-    if (e.target.classList.contains("home")) {
-      location.assign("../home/home.html");
-    }
-    if (e.target.classList.contains("contacts")) {
-      location.assign("../contacts/contacts.html");
-    }
-  });
+  header.insertAdjacentHTML("beforeend", navMenu);
 };
