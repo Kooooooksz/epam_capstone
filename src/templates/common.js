@@ -47,7 +47,7 @@ const insertNavMenu = function (header) {
                 : ""
             }</a>
             <ul class="submenu">
-                <li><a href="#">Profile</a></li>
+                <li><a href="../profile/profile.html">Profile</a></li>
                 <li><a class="logout" href="#">Logout</a></li>
             </ul>
         </li>

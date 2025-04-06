@@ -15,21 +15,68 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 header {
   @extend nav;
 }
 
+.introduction {
+  background-color: v.$white;
+  padding: 40px 20px;
+  text-align: center;
+  margin-top: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    font-size: 28px;
+    color: v.$primary-color;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 18px;
+    color: v.$text-color;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background-color: v.$primary-color;
+    color: v.$white;
+    padding: 12px 30px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+
+    &:hover {
+      background-color: v.$secondary-color;
+    }
+  }
+}
+
 .slider-container {
   position: relative;
-  width: 800px;
+  width: 100%;
+  max-width: 1200px;
   height: 400px;
   overflow: hidden;
   background: v.$white;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  margin: auto;
+  margin: 30px auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -42,10 +89,11 @@ header {
   transition: transform 0.5s ease-in-out;
 
   img {
-    width: 800px;
-    height: 400px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     flex-shrink: 0;
+    border-radius: 10px;
   }
 }
 
@@ -95,6 +143,87 @@ header {
       background: v.$primary-color;
       transform: scale(1.2);
       border-color: rgba(255, 255, 255, 1);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  .slider-container {
+    height: 250px;
+    padding: 10px;
+  }
+
+  .slider img {
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .controls button {
+    font-size: 20px;
+    padding: 8px 12px;
+  }
+
+  .dots__dot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .introduction {
+    padding: 30px 15px;
+
+    h2 {
+      font-size: 24px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+
+    .cta-btn {
+      padding: 10px 25px;
+      font-size: 14px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .slider-container {
+    height: 200px;
+  }
+
+  .slider img {
+    object-fit: cover;
+    height: 100%;
+  }
+
+  .controls button {
+    font-size: 18px;
+    padding: 8px;
+  }
+
+  .dots__dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .introduction {
+    padding: 20px 10px;
+
+    h2 {
+      font-size: 20px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+
+    .cta-btn {
+      padding: 8px 20px;
+      font-size: 12px;
     }
   }
 }

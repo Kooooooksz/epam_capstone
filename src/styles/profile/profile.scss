@@ -1,0 +1,81 @@
+@use "../common/variables" as v;
+@use "../common/nav";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: v.$background-color;
+  color: v.$text-color;
+}
+
+header {
+  @extend nav;
+}
+
+.profile {
+  padding: 30px;
+  max-width: 900px;
+  margin: auto;
+  background-color: v.$white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  .profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    h2 {
+      font-size: 24px;
+      color: v.$primary-color;
+    }
+
+    #edit-profile-btn {
+      background-color: v.$primary-color;
+      color: v.$white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: v.$secondary-color;
+      }
+    }
+  }
+
+  .profile-info {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+
+    .profile-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 18px;
+
+      strong {
+        font-weight: bold;
+      }
+
+      span {
+        color: v.$text-color;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 20px;
+    .profile-header {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+}
