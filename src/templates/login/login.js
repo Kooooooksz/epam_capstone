@@ -1,5 +1,9 @@
 import { getUsers } from "../../UserOperations.js";
 
+if (localStorage.getItem("currentUser")) {
+  location.assign("../slider_page/slider_page.html");
+}
+
 const loginForm = document.querySelector("form");
 
 loginForm.addEventListener("submit", async function (e) {

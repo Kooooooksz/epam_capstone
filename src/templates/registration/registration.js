@@ -1,5 +1,9 @@
 import { User, addUser, getUsers } from "../../UserOperations.js";
 
+if (localStorage.getItem("currentUser")) {
+  location.assign("../slider_page/slider_page.html");
+}
+
 const inputName = document.querySelector("#name");
 const inputEmail = document.querySelector("#email");
 const inputPassword = document.querySelector("#password");
