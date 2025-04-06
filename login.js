@@ -1,4 +1,4 @@
-import { getUsers } from "../../UserOperations.js";
+import { getUsers } from "./src/UserOperations.js";
 
 if (localStorage.getItem("currentUser")) {
   location.assign("../slider_page/slider_page.html");
