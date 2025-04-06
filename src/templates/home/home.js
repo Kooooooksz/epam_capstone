@@ -170,7 +170,7 @@ ctaBtn.addEventListener("click", function (e) {
 });
 
 const sortCourses = async (category, order = "asc", courseP) => {
-  const courses = [...(courseP ?? data.courses)];
+  const courses = [...(courseP ?? courses)];
 
   const sortedCourses = courses.sort((a, b) =>
     compareValues(a, b, category, order)
@@ -204,7 +204,7 @@ sortSelect.addEventListener("click", function (e) {
 });
 
 const filterCourses = async function () {
-  let { courses } = await getCourses();
+  let courses = await getCourses();
   courses = courses.filter((course) =>
     course[filterSelect.value]
       .toLowerCase()
