@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3000/courses";
+const BASE_URL = "https://course-datas.vercel.app/courses";
 
 export class Course {
   static idValue;

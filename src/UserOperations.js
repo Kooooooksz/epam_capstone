@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3000/users";
+const BASE_URL = "https://course-datas.vercel.app/users";
 
 export class User {
   constructor(name, password, role, email) {
