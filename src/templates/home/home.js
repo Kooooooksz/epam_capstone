@@ -1,4 +1,4 @@
-import { fetchData, checkUserSignedIn } from "../common.js";
+import { checkUserSignedIn } from "../common.js";
 import {
   getCourses,
   getCourseByCourseName,
@@ -172,7 +172,6 @@ ctaBtn.addEventListener("click", function (e) {
 });
 
 const sortCourses = async (category, order = "asc", courseP) => {
-  const data = await fetchData();
   const courses = [...(courseP ?? data.courses)];
 
   const sortedCourses = courses.sort((a, b) =>
@@ -207,7 +206,7 @@ sortSelect.addEventListener("click", function (e) {
 });
 
 const filterCourses = async function () {
-  let { courses } = await fetchData();
+  let { courses } = await getCourses();
   courses = courses.filter((course) =>
     course[filterSelect.value]
       .toLowerCase()
