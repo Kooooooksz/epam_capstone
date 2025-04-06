@@ -20,11 +20,11 @@ let courses = [];
 let currentPage = 1;
 const itemsPerPage = 10;
 
-const storageUser = JSON.parse(localStorage.getItem("currentUser"));
+const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
-let currentUser = null;
+//let currentUser = null;
 
-async function loadCurrentUser() {
+/*async function loadCurrentUser() {
   currentUser = await getUserByUsername(storageUser.name);
   console.log();
   if (!currentUser) {
@@ -33,9 +33,7 @@ async function loadCurrentUser() {
   }
 
   loadCourses();
-}
-
-loadCurrentUser();
+}*/
 
 async function loadCourses(coursesP) {
   courses = coursesP === undefined ? await getCourses() : coursesP;
