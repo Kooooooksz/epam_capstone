@@ -6,7 +6,6 @@ checkUserSignedIn(header);
 
 const currentUser = JSON.parse(localStorage.getItem("currentUser")) || null;
 const courseList = document.querySelector("#course-list");
-let data = null;
 let courses;
 async function getMyCourses() {
   courses = await getCourses();

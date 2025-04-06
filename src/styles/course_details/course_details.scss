@@ -1,4 +1,5 @@
 @use "../common/variables" as v;
+
 @use "../common/mixins" as m;
 
 body {
@@ -7,12 +8,15 @@ body {
   color: v.$text-color;
   margin: 0;
   padding: 0;
+
   @include m.flex-center;
+  
   height: 100vh;
 }
 
 .container {
   width: 60%;
+
   @include m.flex-center;
 
   @media (max-width: 1024px) {
@@ -30,6 +34,7 @@ body {
   border-radius: 10px;
   text-align: center;
   width: 100%;
+
   @include m.box-shadow;
 
   img {
@@ -40,7 +45,7 @@ body {
 
   h1 {
     color: v.$primary-color;
-    font-size: 24px; // Slightly smaller heading on mobile
+    font-size: 24px;
   }
 
   p {
@@ -62,7 +67,9 @@ body {
   }
 
   .back-home-btn {
+    
     @include m.button-styles;
+    
     margin-top: 15px;
   }
 

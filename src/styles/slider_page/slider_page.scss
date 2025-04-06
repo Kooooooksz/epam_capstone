@@ -1,5 +1,7 @@
 @use "../common/variables" as v;
+
 @use "../common/mixins" as m;
+
 @use "../common/nav";
 
 * {
@@ -20,6 +22,7 @@ body {
 }
 
 header {
+  
   @extend nav;
 }
 

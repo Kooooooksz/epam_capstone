@@ -1,0 +1,23 @@
+{
+  "extends": "stylelint-config-standard",
+  "plugins": ["stylelint-scss"],
+  "rules": {
+    "block-no-empty": true,
+    "color-no-invalid-hex": true,
+    "color-function-notation": "legacy",
+    "color-function-alias-notation": null,
+    "length-zero-no-unit": null,
+    "alpha-value-notation": "number",
+    "at-rule-empty-line-before": null,
+    "selector-class-pattern": null,
+    "declaration-property-value-no-unknown": null,
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": ["use", "mixin", "extend", "include"]
+      }
+    ],
+    "no-descending-specificity": null,
+    "media-feature-range-notation": null
+  }
+}

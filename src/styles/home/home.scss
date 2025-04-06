@@ -1,5 +1,7 @@
 @use "../common/variables" as v;
+
 @use "../common/mixins" as m;
+
 @use "../common/nav";
 
 $primary-color: #007bff;
@@ -22,6 +24,7 @@ body {
 }
 
 header {
+  
   @extend nav;
 }
 
@@ -179,18 +182,22 @@ header {
         background: v.$primary-color;
         color: v.$white;
       }
+
       &.course-update {
         background: v.$secondary-color;
         color: v.$white;
       }
+
       &.course-delete {
         background: red;
         color: v.$white;
       }
+
       &.course-enroll {
         background: green;
         color: v.$white;
       }
+      
       &.course-disenroll {
         background: v.$gray;
         color: v.$white;
@@ -414,6 +421,7 @@ footer {
 
     .sort-controls {
       width: 100%;
+      
       select {
         width: 100%;
       }

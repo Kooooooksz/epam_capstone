@@ -1,11 +1,14 @@
 @use "../common/variables" as v;
+
 @use "../common/mixins" as m;
 
 body {
   background-color: v.$background-color;
   color: v.$text-color;
   font-family: Arial, sans-serif;
+
   @include m.flex-center;
+  
   height: 100vh;
 }
 
@@ -13,7 +16,9 @@ div {
   background: v.$white;
   padding: 20px;
   border-radius: 8px;
+
   @include m.box-shadow;
+  
   text-align: center;
   width: 300px;
 }

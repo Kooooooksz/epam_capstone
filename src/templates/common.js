@@ -33,7 +33,7 @@ const insertNavMenu = function (header) {
     )}" href="../slider_page/slider_page.html">Introduction</a></li>
         <li><a class="home ${isActive(
           "home"
-        )}" href="../home/home.html">Home</a></li>
+        )}" href="../home/home.html">Courses</a></li>
         <li><a class="my_courses ${isActive(
           "my-courses"
         )}" href="../my-courses/my-courses.html">My Courses</a></li>

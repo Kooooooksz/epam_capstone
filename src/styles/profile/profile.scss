@@ -1,4 +1,5 @@
 @use "../common/variables" as v;
+
 @use "../common/nav";
 
 * {
@@ -14,6 +15,7 @@ body {
 }
 
 header {
+  
   @extend nav;
 }
 
@@ -73,6 +75,7 @@ header {
 
   @media (max-width: 768px) {
     padding: 20px;
+    
     .profile-header {
       flex-direction: column;
       text-align: center;

@@ -1,5 +1,4 @@
 import {
-  getCourses,
   addCourse,
   Course,
   updateCourse,
@@ -64,7 +63,7 @@ courseForm.addEventListener("submit", async function (e) {
     return;
   }
 
-  let imageUrl = "pfffff";
+  //let imageUrl = "pfffff";
 
   const isUpdate = !!localStorage.getItem("course");
 
@@ -95,11 +94,11 @@ courseForm.addEventListener("submit", async function (e) {
   location.assign("../home/home.html");
 });
 
-async function convertImageToBase64(file) {
+/*async function convertImageToBase64(file) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => resolve(reader.result);
     reader.onerror = (error) => reject(error);
   });
-}
+}*/

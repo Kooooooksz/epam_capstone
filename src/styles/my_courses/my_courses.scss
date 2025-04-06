@@ -1,8 +1,11 @@
 @use "../common/variables" as v;
+
 @use "../common/mixins" as m;
+
 @use "../common/nav";
 
 header {
+  
   @extend nav;
 }
 
@@ -26,11 +29,13 @@ body {
   background: v.$white;
   padding: 20px;
   border-radius: 8px;
+
   @include m.box-shadow;
+  
   text-align: center;
   width: 80%;
   max-width: 600px;
-  margin: 20px auto; /* Centers only the container horizontally */
+  margin: 20px auto;
 }
 
 h1 {
@@ -49,7 +54,9 @@ h1 {
   color: v.$white;
   padding: 10px;
   border-radius: 5px;
+
   @include m.box-shadow;
+  
   text-align: left;
 }
 

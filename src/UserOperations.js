@@ -17,6 +17,14 @@ export async function getUsers() {
   return users;
 }
 
+export async function getUserByUsername(username) {
+  const response = await fetch(`${BASE_URL}?name=${username}`);
+  const users = await response.json();
+
+  // Assumes that the username is unique
+  return users.length ? users[0] : null; // Returns the first matching user
+}
+
 export async function addUser(user) {
   const response = await fetch(BASE_URL, {
     method: "POST",

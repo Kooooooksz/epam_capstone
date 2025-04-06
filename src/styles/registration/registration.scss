@@ -7,7 +7,9 @@
   padding: 20px;
   background: v.$white;
   border-radius: 8px;
+  
   @include m.box-shadow;
+  
   text-align: center;
 
   h2 {

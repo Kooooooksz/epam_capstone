@@ -4,7 +4,7 @@ import {
   getCourseByCourseName,
   deleteCourse,
 } from "../../CourseOperations.js";
-import { updateUser } from "../../UserOperations.js";
+import { updateUser, getUserByUsername } from "../../UserOperations.js";
 
 const courseListEl = document.querySelector(".course-list");
 const sortSelect = document.querySelector(".sort-select");
@@ -20,7 +20,22 @@ let courses = [];
 let currentPage = 1;
 const itemsPerPage = 10;
 
-const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+const storageUser = JSON.parse(localStorage.getItem("currentUser"));
+
+let currentUser = null;
+
+async function loadCurrentUser() {
+  currentUser = await getUserByUsername(storageUser.name);
+  console.log();
+  if (!currentUser) {
+    console.log("User not found");
+    return;
+  }
+
+  loadCourses();
+}
+
+loadCurrentUser();
 
 async function loadCourses(coursesP) {
   courses = coursesP === undefined ? await getCourses() : coursesP;
@@ -191,7 +206,7 @@ sortSelect.addEventListener("click", function (e) {
   }
 });
 
-const filterCourses = async function (e) {
+const filterCourses = async function () {
   let { courses } = await fetchData();
   courses = courses.filter((course) =>
     course[filterSelect.value]

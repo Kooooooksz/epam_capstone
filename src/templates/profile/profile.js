@@ -15,8 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("user-created-at").textContent =
       currentUser.created_at;
     document.getElementById("user-id").textContent = currentUser.id;
-  } else {
-    alert("No user data found in localStorage.");
   }
 
   document
