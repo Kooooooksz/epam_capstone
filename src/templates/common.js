@@ -56,4 +56,12 @@ const insertNavMenu = function (header) {
 `;
 
   header.insertAdjacentHTML("beforeend", navMenu);
+
+  header.addEventListener("click", function (e) {
+    if (e.target.classList.contains("logout")) {
+      e.preventDefault();
+      localStorage.removeItem("currentUser");
+      location.assign("../login/login.html");
+    }
+  });
 };

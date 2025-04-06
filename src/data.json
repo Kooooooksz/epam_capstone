@@ -5,15 +5,7 @@
       "password": "admin123",
       "role": "admin",
       "email": "admin@learningplatform.com",
-      "courses": [
-        "b0bb",
-        "5a79",
-        "d693",
-        "2",
-        "3",
-        "6",
-        "1"
-      ],
+      "courses": ["b0bb", "5a79", "d693", "3", "6", "1"],
       "created_at": "26/03/2024",
       "id": "e124"
     },
@@ -68,9 +60,7 @@
       "role": "teacher",
       "email": "mark.taylor@learningplatform.com",
       "created_at": "05/01/2024",
-      "assigned_courses": [
-        "hulala"
-      ],
+      "assigned_courses": ["hulala"],
       "id": "d19d"
     },
     {
@@ -79,10 +69,7 @@
       "password": "123456",
       "role": "teacher",
       "email": "teacher@gmail.com",
-      "assigned_courses": [
-        "hulala",
-        "Introduction to Programming"
-      ],
+      "assigned_courses": ["hulala", "Introduction to Programming"],
       "created_at": "4/4/2025"
     }
   ],
@@ -170,7 +157,7 @@
     {
       "course_name": "Data Structures and Algorithms",
       "description": "Learn fundamental data structures and algorithms.",
-      "course_image": "course6.png",
+      "course_image": "course5.png",
       "teacher": "",
       "created_at": "2025-04-15",
       "modules": [
@@ -190,7 +177,7 @@
     {
       "course_name": "React.js Fundamentals",
       "description": "Learn the basics of React.js for modern frontend development.",
-      "course_image": "course8.png",
+      "course_image": "course6.png",
       "teacher": "",
       "created_at": "2024-05-15",
       "modules": [
@@ -210,7 +197,7 @@
     {
       "course_name": "Node.js for Beginners",
       "description": "Learn how to build backend applications using Node.js.",
-      "course_image": "course9.png",
+      "course_image": "course7.png",
       "teacher": "",
       "created_at": "2020-06-01",
       "modules": [
@@ -230,17 +217,16 @@
     {
       "course_name": "Database Management 3",
       "description": "Modified database",
-      "course_image": "pfffff",
+      "course_image": "course8.png",
       "teacher": "",
       "created_at": "4/2/2025",
       "modules": [],
       "id": "8"
     },
     {
-      "course_id": "course_012",
       "course_name": "C++ Programming",
       "description": "Learn C++ programming language from the ground up.",
-      "course_image": "course12.png",
+      "course_image": "course9.png",
       "teacher": "",
       "created_at": "2024-07-15",
       "modules": [
@@ -260,7 +246,7 @@
     {
       "course_name": "Artificial Intelligence Basics",
       "description": "Learn about artificial intelligence and neural networks.",
-      "course_image": "course13.png",
+      "course_image": "course10.png",
       "teacher": "",
       "created_at": "2022-08-01",
       "modules": [
@@ -280,7 +266,7 @@
     {
       "course_name": "Django Web Development",
       "description": "Learn how to develop web applications using Django.",
-      "course_image": "course14.png",
+      "course_image": "course11.png",
       "teacher": "",
       "created_at": "2023-08-15",
       "modules": [
