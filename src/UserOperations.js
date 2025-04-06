@@ -1,4 +1,4 @@
-const BASE_URL = "https://course-datas.vercel.app/users";
+const BASE_URL = "https://ujjjjj-2.vercel.app/users";
 
 export class User {
   constructor(name, password, role, email) {

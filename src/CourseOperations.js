@@ -1,4 +1,4 @@
-const BASE_URL = "https://course-datas.vercel.app/courses";
+const BASE_URL = "https://ujjjjj-2.vercel.app/courses";
 
 export class Course {
   static idValue;
